@@ -6,3 +6,19 @@ thead th {
     background-color: #FD6E4A;
     color: white;
 }
+
+i.far.fa-edit {
+    color: green;
+}
+
+i.far.fa-edit:hover {
+    color: rgb(0, 216, 0);
+}
+
+i.fas.fa-trash {
+    color: rgb(207, 69, 69);
+}
+
+i.fas.fa-trash:hover {
+    color: rgb(255, 0, 0);
+}
