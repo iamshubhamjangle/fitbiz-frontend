@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './homescreen/home/home.component';
-import { PageNotFoundComponent } from './homescreen/page-not-found/page-not-found.component';
-import { GymComponent } from './tracking/gym/gym.component';
-import { MealComponent } from './tracking/meal/meal.component';
+import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { GymComponent } from './components/tracking/gym/gym.component';
+import { MealComponent } from './components/tracking/meal/meal.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
