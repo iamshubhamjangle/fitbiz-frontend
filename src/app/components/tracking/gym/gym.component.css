@@ -27,3 +27,10 @@ thead, tbody, tfoot, tr, td, th {
     border-style: none !important;
 }
 
+.rep-color{
+    background-color: #e65f3e !important;
+}
+
+th.extra-header{
+    background-color: white !important;
+}
