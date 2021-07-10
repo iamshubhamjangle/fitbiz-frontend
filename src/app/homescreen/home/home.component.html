@@ -54,20 +54,20 @@
     <!-- The top two rows after carosel -->
     <div class="row">
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card" (click)="onMealCardClick()">
                 <img src="assets/images/meal.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5>Meals</h5>
-                    <p class="card-text">Start logging your meals.</p>
+                    <p class="card-text">Start logging your Meals.</p>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card" (click)="onGymCardClick()">
                 <img src="assets/images/log.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5>Gym</h5>
-                    <p class="card-text">Start logging your meals.</p>
+                    <p class="card-text">Start logging your Workouts.</p>
                 </div>
             </div>
         </div>
