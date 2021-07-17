@@ -37,7 +37,7 @@ export class GymComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log('in onSubmit: ' + form.submitted + " form valid " + form.valid);
+    console.log('in onSubmit: ' + form.submitted + " form-valid: " + form.valid);
   }
 
 }
