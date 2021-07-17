@@ -23,38 +23,43 @@
             <div class="row">
                 <div class="col-12 col-xl-6 col-xxl-3 mb-1 mb-xxl-0">
                   <input type="date" class="form-control" name="datepicker" aria-label="Date picker" 
-                        [(ngModel)]="workout.date">
+                        [(ngModel)]="workout.date"  min="2000-01-01" max="2199-01-01" #myngdate="ngModel"
+                        [class.field-error]="form.submitted  && myngdate.invalid" required>
                 </div>
                 <div class="col-12 col-xl-6 col-xxl-3 mb-1 mb-xxl-0">
                   <input type="text" class="form-control" name="workoutName" placeholder="Workout Name" 
-                        aria-label="Workout Name" [(ngModel)]="workout.workoutName" #workoutName="ngModel"
-                        required>
+                        aria-label="Workout Name" [(ngModel)]="workout.workoutName" #myngWorkoutName="ngModel" 
+                        [class.field-error]="form.submitted  && myngWorkoutName.invalid" required>
                 </div>
-                <!-- [class.field-error]="form.submitted" -->
-                <!-- form.submitted && workoutName.invalid -->
                 <div class="col-6 col-xl-2 col-xxl-1 mb-1 mb-xxl-0">
                     <input type="number" class="form-control" name="weight1" placeholder="weight 1" min="0" max="999" 
-                        aria-label="Weight1" [(ngModel)]="workout.weight1" required>
+                        aria-label="Weight1" [(ngModel)]="workout.weight1" #myngWeight1="ngModel"
+                        [class.field-error]="form.submitted  && myngWeight1.invalid" required>
                 </div>
                 <div class="col-6 col-xl-2 col-xxl-1 mb-1 mb-xxl-0">
                     <input type="number" class="form-control" name="reps1" placeholder="reps 1" min="0" max="999" 
-                        aria-label="reps1" [(ngModel)]="workout.rep1" required>
+                        aria-label="reps1" [(ngModel)]="workout.rep1" #myngRep1="ngModel"
+                        [class.field-error]="form.submitted  && myngRep1.invalid" required>
                 </div>
                 <div class="col-6 col-xl-2 col-xxl-1 mb-1 mb-xxl-0">
                     <input type="number" class="form-control" name="weight2" placeholder="weight 2" min="0" max="999" 
-                        aria-label="Weight2" [(ngModel)]="workout.weight2" required>
+                        aria-label="Weight2" [(ngModel)]="workout.weight2" #myngWeight2="ngModel"
+                        [class.field-error]="form.submitted  && myngWeight2.invalid" required>
                 </div>
                 <div class="col-6 col-xl-2 col-xxl-1 mb-1 mb-xxl-0">
                     <input type="number" class="form-control" name="reps2" placeholder="reps 2" min="0" max="999" 
-                        aria-label="reps2" [(ngModel)]="workout.rep2" required>
+                        aria-label="reps2" [(ngModel)]="workout.rep2" #myngRep2="ngModel"
+                        [class.field-error]="form.submitted  && myngRep2.invalid" required>
                 </div>
                 <div class="col-6 col-xl-2 col-xxl-1 mb-1 mb-xxl-0">
                     <input type="number" class="form-control" name="weight3" placeholder="weight 3" min="0" max="999" 
-                        aria-label="Weight3" [(ngModel)]="workout.weight3" required>
+                        aria-label="Weight3" [(ngModel)]="workout.weight3" #myngWeight3="ngModel"
+                        [class.field-error]="form.submitted  && myngWeight3.invalid" required>
                 </div>
                 <div class="col-6 col-xl-2 col-xxl-1 mb-1 mb-xxl-0">
                     <input type="number" class="form-control" name="reps3" placeholder="reps 3" min="0" max="999" 
-                        aria-label="reps3" [(ngModel)]="workout.rep3" required>
+                        aria-label="reps3" [(ngModel)]="workout.rep3" #myngRep3="ngModel"
+                        [class.field-error]="form.submitted  && myngRep3.invalid" required>
                 </div>                
             </div>
             <div class="row justify-content-end mt-3">
