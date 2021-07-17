@@ -12,4 +12,11 @@ export class MealComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showMyContainer: boolean = false;
+  
+  demoButtonClick() {
+    this.showMyContainer = !this.showMyContainer;
+    $('i').toggleClass('fa-chevron-down fa-chevron-up');
+  }
+
 }

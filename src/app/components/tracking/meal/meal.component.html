@@ -6,9 +6,36 @@
     <div class="d-flex flex-column flex-md-row justify-content-between">
         <h2 class="d-inline align-middle fw-bold">Track Your Meal</h2>
         <div class="d-flex flex-column flex-md-row">
-            <button class="btn btn-primary my-1 my-md-0 mx-md-2 fw-bold" type="button">Add New Meal</button>
+            <button class="btn btn-primary my-1 my-md-0 mx-md-2 fw-bold" type="button" (click)="demoButtonClick()">Add
+                New Meal <i class="fas fa-chevron-down"></i> </button>
             <button class="btn btn-light fw-bold" type="button">Date: 01 Jun 2021</button>
         </div>
+    </div>
+
+    <!-- spacing -->
+    <div class="my-5"></div>
+
+    <!-- Add New Form -->
+    <div class="border rounded p-3" id="inputFormStyle" *ngIf="showMyContainer">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Add new item to your meal</option>
+                        <option value="100001">Chapati</option>
+                        <option value="100002">Milk</option>
+                        <option value="100003">Egg</option>
+                        <option value="100005">Peanut Butter</option>
+                        <option value="100006">Mango Shake</option>
+                        <option value="100007">Peanuts</option>
+                        <option value="100008">Almonds</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary" style="width:100%">Add</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <!-- spacing -->
@@ -36,7 +63,7 @@
                     <td>2</td>
                     <td>12</td>
                     <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                   
+                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
 
                 </tr>
                 <tr>
@@ -46,7 +73,7 @@
                     <td>2</td>
                     <td>12</td>
                     <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                   
+                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
 
                 </tr>
                 <tr>
@@ -56,7 +83,7 @@
                     <td>2</td>
                     <td>12</td>
                     <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                   
+                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
 
                 </tr>
                 <tr>
@@ -64,9 +91,9 @@
                     <td>Apple</td>
                     <td>25</td>
                     <td>2</td>
-                    <td>12</td>                    
+                    <td>12</td>
                     <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                   
+                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
 
                 </tr>
                 <tr>
@@ -76,7 +103,7 @@
                     <td>2</td>
                     <td>12</td>
                     <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                   
+                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
 
                 </tr>
             </tbody>

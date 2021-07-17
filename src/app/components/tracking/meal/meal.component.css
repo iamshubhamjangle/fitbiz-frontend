@@ -22,3 +22,11 @@ i.fas.fa-trash {
 i.fas.fa-trash:hover {
     color: rgb(255, 0, 0);
 }
+
+.row {
+    --bs-gutter-x: 0.2rem;
+}
+
+#inputFormStyle {
+    background-color: #f5f5f5 !important
+}
