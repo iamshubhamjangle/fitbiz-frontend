@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-gym',
   templateUrl: './gym.component.html',
@@ -11,5 +12,9 @@ export class GymComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  showMyContainer: boolean = false;
+
+  
 
 }

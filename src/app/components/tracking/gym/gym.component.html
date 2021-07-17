@@ -6,9 +6,50 @@
     <div class="d-flex flex-column flex-md-row justify-content-between">
         <h2 class="d-inline align-middle fw-bold">Track Your Workout's</h2>
         <div class="d-flex flex-column flex-md-row">
-            <button class="btn btn-primary my-1 my-md-0 mx-md-2 fw-bold" type="button">Add New Log</button>
+            <button class="btn btn-primary my-1 my-md-0 mx-md-2 fw-bold" type="button" 
+            (click)="showMyContainer=!showMyContainer">Add New Log <i class="fa fa-bars"></i> </button>
             <button class="btn btn-light fw-bold" type="button">Date: 01 Jun 2021</button>
         </div>
+    </div>
+
+    <!-- spacing -->
+    <div class="my-5"></div>
+
+    <!-- Add New Form -->
+    <div class="border rounded p-3" id="inputFormStyle" *ngIf="showMyContainer">
+        <form>
+            <div class="row">
+                <div class="col">
+                  <input type="date" class="form-control" aria-label="Date picker">
+                </div>
+                <div class="col-3">
+                  <input type="text" class="form-control" placeholder="Workout Name" aria-label="Workout Name">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="Weight" min="0" max="999" aria-label="Weight">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="Sets" min="0" max="999" aria-label="Sets">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="Weight" min="0" max="999" aria-label="Weight">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="Sets" min="0" max="999" aria-label="Sets">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="Weight" min="0" max="999" aria-label="Weight">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="Sets" min="0" max="999" aria-label="Sets">
+                </div>                
+            </div>
+            <div class="row justify-content-end mt-3">
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary" style="width:100%">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <!-- spacing -->
