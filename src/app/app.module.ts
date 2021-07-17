@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { GymComponent } from './components/tracking/gym/gym.component';
 import { MealComponent } from './components/tracking/meal/meal.component';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
