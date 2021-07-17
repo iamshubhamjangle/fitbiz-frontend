@@ -14,10 +14,10 @@ export class GymComponent implements OnInit {
   }
 
   showMyContainer: boolean = false;
-
+  
   demoButtonClick() {
-    var name = $('#demoName').val();
-      alert( name + " Jquery Working!");
+    this.showMyContainer = !this.showMyContainer;
+    $('i').toggleClass('fa-chevron-down fa-chevron-up');
   }
 
 }
