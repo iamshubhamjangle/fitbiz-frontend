@@ -12,7 +12,7 @@ export class MealComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showMyContainer: boolean = false;
+  showMyContainer: boolean = true;
   
   demoButtonClick() {
     this.showMyContainer = !this.showMyContainer;

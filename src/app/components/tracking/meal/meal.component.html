@@ -17,10 +17,10 @@
 
     <!-- Add New Form -->
     <div class="border rounded p-3" id="inputFormStyle" *ngIf="showMyContainer">
-        <form>
+        <form #form="ngForm">
             <div class="row">
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name="dropdownMeal" aria-label="Select a food item" ngModel>
                         <option selected>Add new item to your meal</option>
                         <option value="100001">Chapati</option>
                         <option value="100002">Milk</option>
@@ -36,6 +36,7 @@
                 </div>
             </div>
         </form>
+        {{ form.value | json }}
     </div>
 
     <!-- spacing -->
