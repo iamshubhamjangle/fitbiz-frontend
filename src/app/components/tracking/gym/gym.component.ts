@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-gym',
@@ -15,6 +15,9 @@ export class GymComponent implements OnInit {
 
   showMyContainer: boolean = false;
 
-  
+  demoButtonClick() {
+    var name = $('#demoName').val();
+      alert( name + " Jquery Working!");
+  }
 
 }
