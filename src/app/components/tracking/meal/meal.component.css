@@ -30,3 +30,10 @@ i.fas.fa-trash:hover {
 #inputFormStyle {
     background-color: #f5f5f5 !important
 }
+
+/*  When you need border only when user clicks submit add class to the field
+    using [class.field-error]="form.submitted  && workoutName.invalid"
+*/
+.field-error {
+    border: 1px solid red;
+} 

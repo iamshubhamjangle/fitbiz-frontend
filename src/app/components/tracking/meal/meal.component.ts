@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-meal',
@@ -17,6 +18,10 @@ export class MealComponent implements OnInit {
   demoButtonClick() {
     this.showMyContainer = !this.showMyContainer;
     $('i').toggleClass('fa-chevron-down fa-chevron-up');
+  }
+
+  onSubmit(form: NgForm){
+    console.log('in onSubmit: ' + form.submitted + " form-valid: " + form.valid);
   }
 
 }

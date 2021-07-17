@@ -17,11 +17,15 @@
 
     <!-- Add New Form -->
     <div class="border rounded p-3" id="inputFormStyle" *ngIf="showMyContainer">
-        <form #form="ngForm">
+
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div class="row m-1 fw-bold">
+                Select an Item to add it to your meal
+            </div>
             <div class="row">
                 <div class="col">
-                    <select class="form-select" name="dropdownMeal" aria-label="Select a food item" ngModel>
-                        <option selected>Add new item to your meal</option>
+                    <select class="form-select" name="dropdownMeal" aria-label="Select a food item" ngModel #myngDropdown="ngModel"
+                        [class.field-error]="form.submitted  && myngDropdown.invalid" required>                
                         <option value="100001">Chapati</option>
                         <option value="100002">Milk</option>
                         <option value="100003">Egg</option>
@@ -34,6 +38,9 @@
                 <div class="col-3">
                     <button type="submit" class="btn btn-primary" style="width:100%">Add</button>
                 </div>
+            </div>
+            <div class="alert alert-danger p-2 my-2" *ngIf="form.submitted  && myngDropdown.invalid">
+                    Please select an item to continue...
             </div>
         </form>
         {{ form.value | json }}
