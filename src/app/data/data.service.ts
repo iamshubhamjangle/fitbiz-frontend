@@ -16,7 +16,7 @@ export class DataService {
     // return of(workout);
   }
   
-  postMealForm(mealId: string): Observable<any> {
+  postMealForm(mealId: any): Observable<any> {
     return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', mealId);
     // return of(workout);
   }
@@ -28,14 +28,17 @@ export class DataService {
         {
           id: '1',
           mealName: 'Peanut',
+          date: ''
         },
         {
           id: '2',
           mealName: 'Egg',
+          date: ''
         },
         {
           id: '3',
           mealName: 'Apple',
+          date: ''
         },
       ]
     );
