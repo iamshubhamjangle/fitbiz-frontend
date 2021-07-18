@@ -18,6 +18,7 @@ export class MealComponent implements OnInit {
   showMyContainer: boolean = true;
 
   postError = false;
+  postSuccess = false;
   postErrorMessage = '';
   mealItems!: Observable<Meal[]>;
 
@@ -44,11 +45,12 @@ export class MealComponent implements OnInit {
     if(form.valid){
       this.postError = false;
       this.dataService.postMealForm(selectedMealItem).subscribe(
-        result => console.log('success: ', result),
+        result => this.onPostSuccess(result),
         error => this.onHttpError(error)
         );
       } else {
         this.postError = true;
+        this.postSuccess = false;
         this.postErrorMessage = 'Please select an item to continue...';
       }
   }
@@ -59,4 +61,9 @@ export class MealComponent implements OnInit {
     this.postErrorMessage = errorResponse.error.errorMessage;    
   }
 
+  onPostSuccess(successResponse: any) {
+    console.log('success: ', successResponse),
+    this.postSuccess = true;
+    this.postError = false;
+  }
 }

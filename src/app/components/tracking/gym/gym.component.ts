@@ -14,6 +14,7 @@ export class GymComponent implements OnInit {
   constructor(private dataService: DataService) { }
   
   postError = false;
+  postSuccess = false;
   postErrorMessage = '';
 
   originalWorkout : Workout = {
@@ -44,13 +45,13 @@ export class GymComponent implements OnInit {
   onSubmit(form: NgForm){
     // console.log('in onSubmit: ' + form.submitted + " form-valid: " + form.valid);
     if(form.valid){
-
       this.dataService.postWorkoutForm(this.workout).subscribe(
-        result => console.log('success: ', result),
+        result => this.onPostSuccess(result),
         error => this.onHttpError(error)
         );
       } else {
         this.postError = true;
+        this.postSuccess = false;
         this.postErrorMessage = 'Please enter all required fields.';
       }
   }
@@ -59,6 +60,12 @@ export class GymComponent implements OnInit {
     console.log('Error: ', errorResponse);
     this.postError = true;
     this.postErrorMessage = errorResponse.error.errorMessage;    
+  }
+
+  onPostSuccess(successResponse: any) {
+    console.log('success: ', successResponse),
+    this.postSuccess = true;
+    this.postError = false;
   }
 
 }
