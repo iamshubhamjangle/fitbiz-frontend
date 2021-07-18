@@ -6,7 +6,7 @@
     <div class="d-flex flex-column flex-md-row justify-content-between">
         <h2 class="d-inline align-middle fw-bold">Track Your Meal</h2>
         <div class="d-flex flex-column flex-md-row">
-            <button class="btn btn-primary my-1 my-md-0 mx-md-2 fw-bold" type="button" (click)="demoButtonClick()">Add
+            <button class="btn btn-primary my-1 my-md-0 mx-md-2 fw-bold" type="button" (click)="toggleFormVisibility()">Add
                 New Meal <i class="fas fa-chevron-down"></i> </button>
             <button class="btn btn-light fw-bold" type="button">Date: 01 Jun 2021</button>
         </div>
@@ -24,15 +24,16 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <select class="form-select" name="dropdownMeal" aria-label="Select a food item" ngModel #myngDropdown="ngModel"
+                    <select class="form-select" name="dropdownMeal" aria-label="Select a food item" 
+                        [(ngModel)]="meal.mealName" #myngDropdown="ngModel"
                         [class.field-error]="form.submitted  && myngDropdown.invalid" required>                
-                        <option value="100001">Chapati</option>
-                        <option value="100002">Milk</option>
-                        <option value="100003">Egg</option>
-                        <option value="100005">Peanut Butter</option>
-                        <option value="100006">Mango Shake</option>
-                        <option value="100007">Peanuts</option>
-                        <option value="100008">Almonds</option>
+                        <option>Chapati</option>
+                        <option>Milk</option>
+                        <option>Egg</option>
+                        <option>Peanut Butter</option>
+                        <option>Mango Shake</option>
+                        <option>Peanuts</option>
+                        <option>Almonds</option>
                     </select>
                 </div>
                 <div class="col-3">

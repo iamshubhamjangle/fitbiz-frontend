@@ -10,7 +10,9 @@ import { DataService } from 'src/app/data/data.service';
   styleUrls: ['./gym.component.css']
 })
 export class GymComponent implements OnInit {
-
+  
+  constructor(private dataService: DataService) { }
+  
   postError = false;
   postErrorMessage = '';
 
@@ -28,7 +30,6 @@ export class GymComponent implements OnInit {
 
   workout : Workout = { ...this.originalWorkout };
 
-  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
