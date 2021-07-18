@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
 import { FormsModule, NgForm } from '@angular/forms';
 import { Workout } from 'src/app/data/workout';
+import { DataService } from 'src/app/data/data.service';
 
 @Component({
   selector: 'app-gym',
@@ -11,7 +12,7 @@ import { Workout } from 'src/app/data/workout';
 export class GymComponent implements OnInit {
 
   originalWorkout : Workout = {
-    id: Date.toString(),
+    id: '',
     date: '',
     workoutName: '',
     weight1: '',
@@ -24,7 +25,7 @@ export class GymComponent implements OnInit {
 
   workout : Workout = { ...this.originalWorkout };
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,10 @@ export class GymComponent implements OnInit {
 
   onSubmit(form: NgForm){
     console.log('in onSubmit: ' + form.submitted + " form-valid: " + form.valid);
+    this.dataService.postWorkoutForm(this.workout).subscribe(
+      result => console.log('success: ', result),
+      error => console.log('Error: ', error)
+    );
   }
 
 }
