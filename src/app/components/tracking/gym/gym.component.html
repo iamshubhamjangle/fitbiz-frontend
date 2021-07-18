@@ -109,60 +109,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Biceps</td>
-                    <td>10</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td>18</td>
-                    <td>20</td>
-                    <td>15</td>
+                <tr *ngFor="let item of workoutLogData | async">
+                    <td scope="row">{{ item.date }}</td>
+                    <td>{{ item.workoutName }}</td>
+                    <td>{{ item.weight1 }}</td>
+                    <td>{{ item.rep1 }}</td>
+                    <td>{{ item.weight2 }}</td>
+                    <td>{{ item.rep2 }}</td>
+                    <td>{{ item.weight3 }}</td>
+                    <td>{{ item.rep3 }}</td>
                     <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                   
-                </tr>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Biceps</td>
-                    <td>10</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td>18</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                    
-                </tr>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Biceps</td>
-                    <td>10</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td>18</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                    
-                </tr>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Biceps</td>
-                    <td>10</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td>18</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                    
-                </tr>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Biceps</td>
-                    <td>10</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td>18</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                    
                 </tr>
             </tbody>
         </table>

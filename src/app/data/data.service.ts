@@ -10,6 +10,7 @@ import { Workout } from './workout';
 })
 
 export class DataService {
+  
   constructor(private http: HttpClient) { }
   
   postWorkoutForm(workout: Workout): Observable<any> {
@@ -82,6 +83,46 @@ export class DataService {
             proteins: '18'
         }
     ]
+    );
+  }
+
+  getWorkoutLogData(): Observable<Workout[]> {
+    return of(
+      [
+        {
+          id: '1',
+          date: '01 Jun 2021',
+          workoutName: 'Biceps',
+          weight1: '10',
+          weight2: '15',
+          weight3: '20',
+          rep1: '30',
+          rep2: '25',
+          rep3: '20',
+        },
+        {
+          id: '2',
+          date: '02 Jun 2022',
+          workoutName: 'Arms',
+          weight1: '10',
+          weight2: '15',
+          weight3: '20',
+          rep1: '30',
+          rep2: '25',
+          rep3: '20',
+        },
+        {
+          id: '3',
+          date: '03 Jun 2023',
+          workoutName: 'Triceps',
+          weight1: '10',
+          weight2: '15',
+          weight3: '20',
+          rep1: '30',
+          rep2: '25',
+          rep3: '20',
+        },
+      ]
     );
   }
 }

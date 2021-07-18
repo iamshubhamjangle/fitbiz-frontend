@@ -3,6 +3,7 @@ import * as $ from "jquery";
 import { FormsModule, NgForm } from '@angular/forms';
 import { Workout } from 'src/app/data/workout';
 import { DataService } from 'src/app/data/data.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-gym',
@@ -16,6 +17,7 @@ export class GymComponent implements OnInit {
   postError = false;
   postSuccess = false;
   postErrorMessage = '';
+  workoutLogData!: Observable<Workout[]>;
 
   originalWorkout : Workout = {
     id: '',
@@ -33,6 +35,7 @@ export class GymComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.workoutLogData = this.dataService.getWorkoutLogData();
   }
 
   showMyContainer: boolean = true;
