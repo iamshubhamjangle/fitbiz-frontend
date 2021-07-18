@@ -71,6 +71,10 @@
         
         {{ form.value | json }}
 
+        <div [hidden]="!postError" class="alert alert-danger p-2 mb-0 mt-3">
+            {{ postErrorMessage }}
+        </div>
+
     </div>
 
 
