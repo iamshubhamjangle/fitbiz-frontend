@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 
 import { DataService } from 'src/app/data/data.service';
 import { Meal } from 'src/app/data/meal';
+import { MealList } from 'src/app/data/mealList';
 
 @Component({
   selector: 'app-meal',
@@ -21,9 +22,11 @@ export class MealComponent implements OnInit {
   postSuccess = false;
   postErrorMessage = '';
   mealItems!: Observable<Meal[]>;
+  mealListData!: Observable<MealList[]>;
 
   ngOnInit(): void {
     this.mealItems = this.dataService.getMealItems();
+    this.mealListData = this.dataService.getMealListData();
   }
   
   toggleFormVisibility() {
@@ -65,5 +68,9 @@ export class MealComponent implements OnInit {
     console.log('success: ', successResponse),
     this.postSuccess = true;
     this.postError = false;
+  }
+
+  reloadMealList() {
+
   }
 }

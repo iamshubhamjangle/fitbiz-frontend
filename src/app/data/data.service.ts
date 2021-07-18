@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Meal } from './meal';
+import { MealList } from './mealList';
 import { Workout } from './workout';
 
 @Injectable({
@@ -28,19 +29,59 @@ export class DataService {
         {
           id: '1',
           mealName: 'Peanut',
-          date: ''
         },
         {
           id: '2',
           mealName: 'Egg',
-          date: ''
         },
         {
           id: '3',
           mealName: 'Apple',
-          date: ''
         },
       ]
+    );
+  }
+
+  getMealListData(): Observable<MealList[]> {
+    return of(
+      [
+        {
+            id: '1',
+            date: '18 Jun 2021',
+            mealName: 'Peanuts',
+            calories: '123',
+            carbs: '10',
+            fats: '12',
+            proteins: '18'
+        },
+        {
+            id: '2',
+            date: '19 Jul 2021',
+            mealName: 'Almonds',
+            calories: '123',
+            carbs: '10',
+            fats: '12',
+            proteins: '18'
+        },
+        {
+            id: '3',
+            date: '20 Aug 2021',
+            mealName: 'Egg',
+            calories: '123',
+            carbs: '10',
+            fats: '12',
+            proteins: '18'
+        },
+        {
+            id: '4',
+            date: '21 Sep 2021',
+            mealName: 'Milk',
+            calories: '123',
+            carbs: '10',
+            fats: '12',
+            proteins: '18'
+        }
+    ]
     );
   }
 }

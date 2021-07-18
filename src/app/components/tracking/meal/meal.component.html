@@ -6,9 +6,15 @@
     <div class="d-flex flex-column flex-md-row justify-content-between">
         <h2 class="d-inline align-middle fw-bold">Track Your Meal</h2>
         <div class="d-flex flex-column flex-md-row">
-            <button class="btn btn-primary my-1 my-md-0 mx-md-2 fw-bold" type="button" (click)="toggleFormVisibility()">Add
-                New Meal <i class="fas fa-chevron-down"></i> </button>
-            <button class="btn btn-light fw-bold" type="button">Date: 01 Jun 2021</button>
+            <button class="btn btn-primary my-1 my-md-0 fw-bold" type="button" (click)="toggleFormVisibility()">
+                Add New Meal <i class="fas fa-chevron-down"></i>
+            </button>
+            <button class="btn btn-light fw-bold my-1 my-md-0  mx-md-2" type="button">
+                Date: 01 Jun 2021
+            </button>
+            <button class="btn btn-light fw-bold my-1 my-md-0" type="button" (click)="reloadMealList()">
+                <i class="fas fa-sync-alt"></i>
+            </button>
         </div>
     </div>
 
@@ -36,7 +42,7 @@
             </div>
         </form>
 
-        {{ form.value | json }}
+        <!-- {{ form.value | json }} -->
 
         <div [hidden]="!postError" class="alert alert-danger p-2 mb-0 mt-3">
             {{ postErrorMessage }}
@@ -65,63 +71,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Egg</td>
-                    <td>25</td>
-                    <td>2</td>
-                    <td>12</td>
-                    <td>5</td>
+                <tr *ngFor="let item of mealListData | async">
+                    <td scope="row">{{ item.date }}</td>
+                    <td>{{ item.mealName }}</td>
+                    <td>{{ item.calories }}</td>
+                    <td>{{ item.carbs }}</td>
+                    <td>{{ item.fats }}</td>
+                    <td>{{ item.proteins }}</td>
                     <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
-
-                </tr>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Chapati</td>
-                    <td>25</td>
-                    <td>2</td>
-                    <td>12</td>
-                    <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
-
-                </tr>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Corns</td>
-                    <td>25</td>
-                    <td>2</td>
-                    <td>12</td>
-                    <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
-
-                </tr>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Apple</td>
-                    <td>25</td>
-                    <td>2</td>
-                    <td>12</td>
-                    <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
-
-                </tr>
-                <tr>
-                    <td scope="row">01 Jun 2021</td>
-                    <td>Banana</td>
-                    <td>25</td>
-                    <td>2</td>
-                    <td>12</td>
-                    <td>5</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
-
                 </tr>
             </tbody>
         </table>
     </div>
-
-
-
-
-
-
 </div>
