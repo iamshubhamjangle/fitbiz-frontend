@@ -1,17 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fw-bold">
     <div class="container-fluid py-1">
-        <a class="navbar-brand fw-normal" id="logo" routerLink="">Fitbiz.com</a>
+        <a class="navbar-brand fw-normal text-accent-color cursive-font" id="logo" routerLink="">Fitbiz.com</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav text-center">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" routerLink="">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="">Programs</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Track
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Meal</a></li>
+                      <li><a class="dropdown-item" href="#">Workouts</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="">About</a>
@@ -19,12 +25,12 @@
             </ul>
             <div class="ms-auto">
                 <ul class="navbar-nav">
-                    <li class="nav-item" id="signup">
-                        <a class="nav-link text-white px-3" routerLink="">Sign up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="">Sign in</a>
-                    </li>
+                    <button class="btn accent-color text-white fw-bold rounded-pill px-4" routerLink="">
+                        Become a member
+                    </button>
+                    <button class="btn btn-light fw-bold rounded-pill px-4" routerLink="">
+                        Sign in
+                    </button>
                 </ul>
             </div>
         </div>

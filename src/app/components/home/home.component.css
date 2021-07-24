@@ -4,8 +4,8 @@
     object-fit: cover;
 }
 
-.mycard-width {
-    width: 30rem;
+.my-card-width {
+    width: 25rem;
 }
 
 .card{
@@ -17,4 +17,10 @@
 .card:hover{
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.blur {
+    /* background: rgba(255, 255, 255, 0.0); 
+    backdrop-filter: blur(2px);  */
+    text-shadow: 1px 1px 15px #000000;
 }

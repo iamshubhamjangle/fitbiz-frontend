@@ -4,4 +4,18 @@
     border: 1px solid red;
 } 
 
+.accent-color {
+    background-color: #FD6E4A !important;
+}
 
+.text-accent-color {
+    color: #FD6E4A !important;
+}
+
+.accent-color:hover {
+    background-color: #d85a3b !important;
+}
+
+.cursive-font {
+    font-family: 'Pacifico', cursive;
+}
