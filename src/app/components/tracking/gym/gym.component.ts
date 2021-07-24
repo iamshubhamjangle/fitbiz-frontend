@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
-import { FormsModule, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Workout } from 'src/app/data/workout';
 import { DataService } from 'src/app/data/data.service';
 import { Observable } from 'rxjs/internal/Observable';

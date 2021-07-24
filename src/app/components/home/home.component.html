@@ -29,7 +29,8 @@
             <img src="assets/images/item3.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption my-3 blur">
                 <h3 class="fw-bold">Our health clubs</h3>
-                <p>Push your fitness further with our mix of facilities and we'll support you with advice on new and better ways to train.</p>
+                <p>Push your fitness further with our mix of facilities and we'll support you with advice on new and
+                    better ways to train.</p>
                 <button class="btn accent-color text-white btn-lg">Explore Workouts</button>
             </div>
         </div>
@@ -46,15 +47,15 @@
 
 <div class="container">
 
+    <!-- heading 1 -->
     <div class="my-5">
         <h3 class="text-center text-uppercase fw-bold text-decoration-underline">Track yourself daily</h3>
     </div>
 
-
     <!-- The top two rows after carosel -->
     <div class="row justify-content-evenly">
         <div class="col my-3 my-lg-0">
-            <div class="card my-card-width text-center mx-auto" (click)="onMealCardClick()">
+            <div class="card my-card text-center mx-auto" (click)="onMealCardClick()">
                 <img src="assets/images/meal.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5>Meals</h5>
@@ -63,7 +64,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card my-card-width text-center mx-auto" (click)="onGymCardClick()">
+            <div class="card my-card text-center mx-auto" (click)="onGymCardClick()">
                 <img src="assets/images/log.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5>Gym</h5>
@@ -74,4 +75,52 @@
 
     </div>
 
-    <div class="my-5"></div>
+    <!-- heading 2 -->
+    <div class="my-5">
+        <h3 class="text-center text-uppercase fw-bold text-decoration-underline">Explore Exercises</h3>
+    </div>
+
+    <div class="row g-3 ">
+        <div class="col-6 col-lg-3"  *ngFor="let item of exerciseData | async">
+            <div class="card text-white">
+                <img src={{item.imgUrl}} class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h3 class="card-title blur">{{ item.name }}</h3>                
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-6 col-lg-3">
+            <div class="card text-white">
+                <img src="https://images.unsplash.com/photo-1550259979-ed79b48d2a30?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGd5bXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h3 class="card-title blur">Yoga</h3>                
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card text-white">
+                <img src="https://images.unsplash.com/photo-1579758682665-53a1a614eea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGd5bXxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h3 class="card-title blur">Strength</h3>                
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card text-white">
+                <img src="https://images.unsplash.com/photo-1611672585731-fa10603fb9e0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGd5bXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h3 class="card-title blur">Weight Gain</h3>                
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card text-white">
+                <img src="https://images.unsplash.com/photo-1603503364272-6e28e046b37a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGd5bXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h3 class="card-title blur">Mobility</h3>                
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+</div>
