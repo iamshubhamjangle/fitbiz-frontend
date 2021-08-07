@@ -153,13 +153,13 @@ export class DataService {
         },
         {
           id: '002',
-          name: 'Shoulder with barbell',
+          name: 'Dumbbell Squeeze Press',
           description: `
-          There's a lot more to your arms than just bi's and tri's. If you want massive guns these are the muscles you need to work on.
+          We're going to be honest with you when it comes to chest, the bench press is going to account for most of your workouts, but it doesn't have to be all you do. We've selected 10 chest exercises for building muscle, including presses and so much more.
 
-          Located on the upper arm, your biceps are made up of a “short head” and a “long head”, which work as a single muscle. The bicep heads begin at different places around your shoulder/scapula region, but they have a common insertion point on the elbow tendon, and together allow you to bend your arm at the elbow joint (crucial for flexing), as well as helping you to curl and pull weight.          
+          Squeezing the dumbbells together during a chest press moves the emphasis of the movement onto your pecs. This simple tweak engages them throughout the entire range of motion — a key factor to maximise muscle gain.        
           `,
-          imgUrl: 'https://hips.hearstapps.com/ame-prod-menshealth-assets.s3.amazonaws.com/main/assets/bicep-curl.gif?resize=768:*',
+          imgUrl: 'https://hips.hearstapps.com/ame-prod-menshealth-assets.s3.amazonaws.com/main/assets/incline-bench-press.gif?resize=768:*',
           category: 'Strength',
           steps: [
             `Stand holding a dumbbell in each hand with your arms hanging by your sides. Ensure your elbows are close to your torso and your palms facing forward.`,           
@@ -179,7 +179,7 @@ export class DataService {
 
           Located on the upper arm, your biceps are made up of a “short head” and a “long head”, which work as a single muscle. The bicep heads begin at different places around your shoulder/scapula region, but they have a common insertion point on the elbow tendon, and together allow you to bend your arm at the elbow joint (crucial for flexing), as well as helping you to curl and pull weight.          
           `,
-          imgUrl: 'https://hips.hearstapps.com/ame-prod-menshealth-assets.s3.amazonaws.com/main/assets/bicep-curl.gif?resize=768:*',
+          imgUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/squatjumps-1572368980.gif?resize=480:*',
           category: 'Strength',
           steps: [
             `Stand holding a dumbbell in each hand with your arms hanging by your sides. Ensure your elbows are close to your torso and your palms facing forward.`,           
@@ -193,13 +193,13 @@ export class DataService {
         },
         {
           id: '001',
-          name: 'Biceps Curls',
+          name: 'Triceps Curls',
           description: `
           There's a lot more to your arms than just bi's and tri's. If you want massive guns these are the muscles you need to work on.
 
           Located on the upper arm, your biceps are made up of a “short head” and a “long head”, which work as a single muscle. The bicep heads begin at different places around your shoulder/scapula region, but they have a common insertion point on the elbow tendon, and together allow you to bend your arm at the elbow joint (crucial for flexing), as well as helping you to curl and pull weight.          
           `,
-          imgUrl: 'https://hips.hearstapps.com/ame-prod-menshealth-assets.s3.amazonaws.com/main/assets/bicep-curl.gif?resize=768:*',
+          imgUrl: 'https://i.pinimg.com/originals/7e/2e/97/7e2e97148d9e62bdba3136a1eaf3883d.gif',
           category: 'Strength',
           steps: [
             `Stand holding a dumbbell in each hand with your arms hanging by your sides. Ensure your elbows are close to your torso and your palms facing forward.`,           
@@ -213,13 +213,13 @@ export class DataService {
         },
         {
           id: '001',
-          name: 'Biceps Curls',
+          name: 'Shoulder',
           description: `
           There's a lot more to your arms than just bi's and tri's. If you want massive guns these are the muscles you need to work on.
 
           Located on the upper arm, your biceps are made up of a “short head” and a “long head”, which work as a single muscle. The bicep heads begin at different places around your shoulder/scapula region, but they have a common insertion point on the elbow tendon, and together allow you to bend your arm at the elbow joint (crucial for flexing), as well as helping you to curl and pull weight.          
           `,
-          imgUrl: 'https://hips.hearstapps.com/ame-prod-menshealth-assets.s3.amazonaws.com/main/assets/bicep-curl.gif?resize=768:*',
+          imgUrl: 'http://assets.menshealth.co.uk/main/assets/uprightrow.gif?mtime=1478004583',
           category: 'Strength',
           steps: [
             `Stand holding a dumbbell in each hand with your arms hanging by your sides. Ensure your elbows are close to your torso and your palms facing forward.`,           
@@ -233,13 +233,13 @@ export class DataService {
         },
         {
           id: '001',
-          name: 'Biceps Curls',
+          name: 'Shoulder',
           description: `
           There's a lot more to your arms than just bi's and tri's. If you want massive guns these are the muscles you need to work on.
 
           Located on the upper arm, your biceps are made up of a “short head” and a “long head”, which work as a single muscle. The bicep heads begin at different places around your shoulder/scapula region, but they have a common insertion point on the elbow tendon, and together allow you to bend your arm at the elbow joint (crucial for flexing), as well as helping you to curl and pull weight.          
           `,
-          imgUrl: 'https://hips.hearstapps.com/ame-prod-menshealth-assets.s3.amazonaws.com/main/assets/bicep-curl.gif?resize=768:*',
+          imgUrl: 'https://i.pinimg.com/originals/72/12/dd/7212dd9ade76335c330a03d397d57038.gif',
           category: 'Strength',
           steps: [
             `Stand holding a dumbbell in each hand with your arms hanging by your sides. Ensure your elbows are close to your torso and your palms facing forward.`,           
