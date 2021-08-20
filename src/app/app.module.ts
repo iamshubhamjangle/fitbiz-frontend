@@ -1,8 +1,7 @@
 import { NgModule }               from '@angular/core';
 import { BrowserModule }          from '@angular/platform-browser';
 import { FormsModule }            from '@angular/forms';
-import { HttpClientModule }       from '@angular/common/http';
-
+import { HttpClientModule, HTTP_INTERCEPTORS }       from '@angular/common/http';
 import { AppComponent }           from './app.component';
 import { AppRoutingModule }       from './app-routing.module';
 import { NavbarComponent }        from './components/navbar/navbar.component';
@@ -11,6 +10,8 @@ import { HomeComponent }          from './components/home/home.component';
 import { GymComponent }           from './components/tracking/gym/gym.component';
 import { MealComponent }          from './components/tracking/meal/meal.component';
 import { PageNotFoundComponent }  from './components/page-not-found/page-not-found.component';
+import { ApiInterceptorService } from './data/api-interceptor.service';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PageNotFoundComponent }  from './components/page-not-found/page-not-fou
     MealComponent,
     GymComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,11 @@ import { PageNotFoundComponent }  from './components/page-not-found/page-not-fou
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ApiInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

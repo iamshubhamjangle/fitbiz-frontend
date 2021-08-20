@@ -7,7 +7,7 @@
         <h2 class="d-inline align-middle fw-bold">Track Your Meal</h2>
         <div class="d-flex flex-column flex-md-row">
             <button class="btn btn-primary my-1 my-md-0 fw-bold" type="button" (click)="toggleFormVisibility()">
-                Add New Meal <i class="fas fa-chevron-down"></i>
+                Add New Meal <i class="fas fa-chevron-up"></i>
             </button>
             <button class="btn btn-light fw-bold my-1 my-md-0  mx-md-2" type="button">
                 Date: 01 Jun 2021
@@ -33,7 +33,7 @@
                     <select class="form-select" name="dropdownMealId" aria-label="Select a food item" 
                         ngModel #myngDropdown="ngModel"
                         [class.field-error]="form.submitted  && myngDropdown.invalid" required>                
-                        <option *ngFor="let item of mealItems | async" value="{{ item.id }}"> {{ item.mealName }} </option>
+                        <option *ngFor="let item of mealListData | async" value="{{ item.id }}"> {{ item.mealName }} </option>
                     </select>
                 </div>
                 <div class="col-3"> 

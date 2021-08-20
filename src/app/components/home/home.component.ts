@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, interval  } from 'rxjs';
 import { DataService } from 'src/app/data/data.service';
 import { Exercise } from 'src/app/data/exercise';
 
@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
   }
 
   onMealCardClick(){
-    this.router.navigateByUrl('/track-meal');
+    this.router.navigateByUrl('/track-meal'); 
+    // this.exerciseData.subscribe(val => console.log(val));
   }
   
   onGymCardClick(){

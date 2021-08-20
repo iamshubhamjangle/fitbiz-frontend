@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 
 import { DataService } from 'src/app/data/data.service';
-import { Meal } from 'src/app/data/meal';
+import { MealData } from 'src/app/data/mealData';
 import { MealList } from 'src/app/data/mealList';
 
 @Component({
@@ -21,7 +21,7 @@ export class MealComponent implements OnInit {
   postError = false;
   postSuccess = false;
   postErrorMessage = '';
-  mealItems!: Observable<Meal[]>;
+  mealItems!: Observable<MealData[]>;
   mealListData!: Observable<MealList[]>;
 
   ngOnInit(): void {
@@ -71,6 +71,6 @@ export class MealComponent implements OnInit {
   }
 
   reloadMealList() {
-
+    
   }
 }
