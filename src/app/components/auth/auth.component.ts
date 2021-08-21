@@ -10,6 +10,8 @@ import { DataService } from 'src/app/data/data.service';
 export class AuthComponent implements OnInit {
 
   signInActive = true;
+  postError = false;
+  postErrorMessage = '';
   
   constructor(private dataService: DataService) { }
 
@@ -48,14 +50,14 @@ export class AuthComponent implements OnInit {
 
   onHttpError(errorResponse: any) {
     console.log('Error: ', errorResponse);
-    // this.postError = true;
-    // this.postErrorMessage = errorResponse.error.errorMessage;    
+    this.postError = true;
+    this.postErrorMessage = "Incorrect username/password";
   }
 
   onPostSuccess(successResponse: any) {
     console.log('success: ', successResponse);
     // this.postSuccess = true;
-    // this.postError = false;
+    this.postError = false;
   }
 
 }

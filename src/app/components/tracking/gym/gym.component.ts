@@ -14,8 +14,8 @@ export class GymComponent implements OnInit {
   
   constructor(private dataService: DataService) { }
   
-  postError = false;
   postSuccess = false;
+  postError = false;
   postErrorMessage = '';
   workoutLogData!: Observable<Workout[]>;
 
