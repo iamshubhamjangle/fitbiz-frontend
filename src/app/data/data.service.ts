@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 
-import { MealData } from './mealData';
-import { Exercise } from './exercise';
-import { MealList } from './mealList';
-import { Workout } from './workout';
+import { MealData } from '../models/mealData';
+import { Exercise } from '../models/exercise';
+import { MealList } from '../models/mealList';
+import { Workout } from '../models/workout';
 
 @Injectable({
   providedIn: 'root'
