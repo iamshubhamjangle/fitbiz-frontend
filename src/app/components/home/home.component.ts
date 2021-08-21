@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, interval  } from 'rxjs';
 import { DataService } from 'src/app/data/data.service';
-import { Exercise } from 'src/app/data/exercise';
+import { Exercise } from 'src/app/models/exercise';
 
 @Component({
   selector: 'app-home',
