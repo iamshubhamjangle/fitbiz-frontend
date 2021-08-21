@@ -25,6 +25,10 @@ export class DataService {
   postMealForm(mealId: any): Observable<any> {
     return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', mealId);
   }
+
+  postSignInData(signInData: any): Observable<any> {
+    return this.http.post(this.REST_API_SERVER + `users/signin?username=${signInData.username}&password=${signInData.password}`, '', {responseType: 'text'});
+  }
   
   getMealItems(): Observable<MealData[]> {
     return this.http.get<MealData[]>(this.REST_API_SERVER + '/meal-list');

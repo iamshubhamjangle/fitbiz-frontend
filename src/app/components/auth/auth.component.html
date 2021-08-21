@@ -1,1 +1,29 @@
-<p>auth works!</p>
+<div class="container">
+    <div id="myForm" style="max-width: 500px;">
+        <!-- Signin / Signup -->
+        <div class="d-flex">
+            <p class="flex-fill text-center py-3 fw-bold" [ngClass]="{'mybgleft' : !signInActive}" (click)="signInButtonClick()">Sign in</p>
+            <p class="flex-fill text-center py-3 fw-bold" [ngClass]="{'mybgright' : signInActive}" (click)="signUpButtonClick()">Sign up</p>
+        </div> 
+        <!-- signin form -->
+        <form class="p-3" [hidden]="!signInActive" #form1="ngForm" (ngSubmit)="onSignInSubmit(form1)">
+            <div class="d-flex flex-column justify-content-center">
+                <input class="inputField form-control" name="userName" type="text" placeholder="Username" required ngModel>
+                <input class="inputField form-control" name="password" type="password" placeholder="Password" required ngModel>
+                <button type="submit" class="btn btn-primary rounded-pill">Login</button>
+            </div>
+        </form>
+
+        {{ form1.value | json }}
+
+        <!-- signup form -->
+        <!-- <form class="p-3" [hidden]="signInActive">
+            <div class="d-flex flex-column justify-content-center">
+                <input class="inputField" type="text" placeholder="Username" required>
+                <input class="inputField" type="text" placeholder="Password" type="password" required>
+                <input class="inputField" type="text" placeholder="Confirm password" type="password" required>
+                <button type="submit" class="btn btn-primary rounded-pill">Signup</button>
+            </div>
+        </form> -->
+    </div>
+</div>
