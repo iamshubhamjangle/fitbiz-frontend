@@ -27,8 +27,8 @@ export class AuthComponent implements OnInit {
   }
 
   onSignInSubmit(form1: NgForm) {
-    console.log('in onSubmit: ' + form1.submitted + " form-valid: " + form1.valid);
-    console.log(form1.value);
+    // console.log('in onSubmit: ' + form1.submitted + " form-valid: " + form1.valid);
+    // console.log(form1.value);
 
     var signInData = {
       username: form1.value.userName,

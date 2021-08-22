@@ -4,8 +4,8 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 
 import { DataService } from 'src/app/data/data.service';
-import { MealData } from 'src/app/data/mealData';
-import { MealList } from 'src/app/data/mealList';
+import { MealData } from 'src/app/models/mealData';
+import { MealList } from 'src/app/models/mealList';
 
 @Component({
   selector: 'app-meal',
