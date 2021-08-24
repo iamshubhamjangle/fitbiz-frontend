@@ -23,14 +23,24 @@
                     <a class="nav-link" routerLink="">About</a>
                 </li>
             </ul>
+            <!-- [routerLink]="['/login']" -->
             <div class="ms-auto">
                 <ul class="navbar-nav">
-                    <button class="btn accent-color text-white fw-bold rounded-pill px-4" [routerLink]="['/login']">
+                    <button class="btn accent-color text-white fw-bold rounded-pill px-4" (click)="gotoAuth('signup')">
                         Become a member
                     </button>
-                    <button class="btn btn-light fw-bold rounded-pill px-4" routerLink="">
+                    <button class="btn btn-light fw-bold rounded-pill px-4" (click)="gotoAuth('signin')">
                         Sign in
-                    </button>
+                    </button>                
+                    <!-- <img class="rounded-circle" alt="user" src="https://image.flaticon.com/icons/png/512/3135/3135715.png" data-holder-rendered="true" width="40" height="40"> -->
+                    <div class="dropdown px-4 my-auto mx-auto">
+                        <p class="dropdown-toggle my-auto" href="" role="button" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
+                          Hello Shubham!
+                        </p>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownLogout">
+                          <li><a class="dropdown-item" href="">Logout</a></li>
+                        </ul>
+                      </div>
                 </ul>
             </div>
         </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { DataService } from 'src/app/data/data.service';
 
 @Component({
@@ -13,9 +15,14 @@ export class AuthComponent implements OnInit {
   postError = false;
   postErrorMessage = '';
   
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if(params['page'] == 'signup'){
+        this.signInActive = false;
+      }
+    })
   }
 
   signInButtonClick() {
@@ -38,25 +45,37 @@ export class AuthComponent implements OnInit {
     console.log(signInData);
 
     if(form1.valid) {
-      // this.postError = false;
+      this.postError = false;
       this.dataService.postSignInData(signInData).subscribe(
         result => this.onPostSuccess(result),
-        error => this.onHttpError(error),
+        error => this.onHttpError(error, "Incorrect username/password"),
         );
     } else {
-      console.log('Please enter valid username/password');
+      this.onHttpError(null, "Please enter valid username/password")
     }
   }
 
-  onHttpError(errorResponse: any) {
+  onSignUpSubmit(form2: NgForm) {
+    if(form2.invalid){
+      this.onHttpError(null, "Please enter valid username/password")
+      return;
+    }    
+    if(form2.value.password === form2.value.confirmPassword) {
+      this.postError = false;
+      console.log(form2.value);
+    } else {
+      this.onHttpError(null, "Your password don't match!")
+    }
+  }
+
+  onHttpError(errorResponse: any, message: string) {
     console.log('Error: ', errorResponse);
     this.postError = true;
-    this.postErrorMessage = "Incorrect username/password";
+    this.postErrorMessage = message;
   }
 
   onPostSuccess(successResponse: any) {
     console.log('success: ', successResponse);
-    // this.postSuccess = true;
     this.postError = false;
   }
 

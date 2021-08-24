@@ -6,28 +6,30 @@
             <p class="flex-fill text-center py-3 fw-bold" [ngClass]="{'mybgright' : signInActive}" (click)="signUpButtonClick()">Sign up</p>
         </div> 
         <!-- signin form -->
+        
         <form class="p-3" [hidden]="!signInActive" #form1="ngForm" (ngSubmit)="onSignInSubmit(form1)">
             <div class="d-flex flex-column justify-content-center">
-                <input class="inputField form-control" name="userName" type="text" placeholder="Username" required ngModel>
+                <input class="inputField form-control" name="username" type="text" placeholder="Username" required ngModel>
                 <input class="inputField form-control" name="password" type="password" placeholder="Password" required ngModel>
                 <button type="submit" class="btn btn-primary rounded-pill">Login</button>
             </div>
         </form>
 
+        <!-- signup form -->
+        <form class="p-3" [hidden]="signInActive" #form2="ngForm" (ngSubmit)="onSignUpSubmit(form2)">
+            <div class="d-flex flex-column justify-content-center">
+                <input class="inputField" name="username" type="text" placeholder="Username" required ngModel>
+                <input class="inputField" name="password" type="text" placeholder="Password" type="password" required ngModel>
+                <input class="inputField" name="confirmPassword" type="text" placeholder="Confirm password" type="password" required ngModel>
+                <button type="submit" class="btn btn-primary rounded-pill">Signup</button>
+            </div>
+        </form>
+        
         <div [hidden]="!postError" class="alert alert-danger p-2 m-3">
             {{ postErrorMessage }}
         </div>
 
-        {{ form1.value | json }}
-
-        <!-- signup form -->
-        <!-- <form class="p-3" [hidden]="signInActive">
-            <div class="d-flex flex-column justify-content-center">
-                <input class="inputField" type="text" placeholder="Username" required>
-                <input class="inputField" type="text" placeholder="Password" type="password" required>
-                <input class="inputField" type="text" placeholder="Confirm password" type="password" required>
-                <button type="submit" class="btn btn-primary rounded-pill">Signup</button>
-            </div>
-        </form> -->
+        <!-- {{ form1.value | json }}
+        {{ form2.value | json }} -->
     </div>
 </div>
