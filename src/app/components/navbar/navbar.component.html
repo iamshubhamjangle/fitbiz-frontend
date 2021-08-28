@@ -35,7 +35,7 @@
                     <!-- <img class="rounded-circle" alt="user" src="https://image.flaticon.com/icons/png/512/3135/3135715.png" data-holder-rendered="true" width="40" height="40"> -->
                     <div class="dropdown px-4 my-auto mx-auto" [hidden]="!loggedin">
                         <p class="dropdown-toggle my-auto" href="" role="button" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
-                          Hello Shubham!
+                          Hello {{ username }}!
                         </p>
                         <ul class="dropdown-menu" aria-labelledby="dropdownLogout">
                           <li><a class="dropdown-item" (click)='logout()'>Logout</a></li>

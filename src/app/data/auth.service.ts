@@ -10,6 +10,8 @@ export class AuthService {
   constructor(private router: Router) { }
 
   public isUserLoggedIn = new Subject<boolean>();
+  public loggedInUsername = new Subject<string>();
+ 
 
   saveTokenToLocalStorage(token: string){
     localStorage.setItem('currentUser', JSON.stringify({ token: token, name: 'Shubham' }));
@@ -39,6 +41,10 @@ export class AuthService {
     }
     this.isUserLoggedIn.next(false);
     return null;
+  }
+
+  setUserName(name: string) {
+    this.loggedInUsername.next(name);
   }
 
 }

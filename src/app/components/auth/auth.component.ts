@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/data/auth.service';
 import { DataService } from 'src/app/data/data.service';
@@ -96,8 +97,12 @@ export class AuthComponent implements OnInit {
     this.postErrorMessage = message;
   }
 
-  onPostSuccess(token: any) {
-    this.authService.saveTokenToLocalStorage(token);
+  onPostSuccess(result: any) {
+    const jsonResult = JSON.parse(result);
+    this.authService.saveTokenToLocalStorage(jsonResult.token);
+    this.authService.setUserName(jsonResult.username);
+    console.log(JSON.parse(result).token);
+    console.log(JSON.parse(result).username);
     this.postError = false;
   }
 

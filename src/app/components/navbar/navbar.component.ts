@@ -10,13 +10,17 @@ import { AuthService } from 'src/app/data/auth.service';
 export class NavbarComponent implements OnInit {
 
   loggedin = false;
+  username = '';
 
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.isUserLoggedIn.subscribe(val => {
-      this.loggedin = val
+      this.loggedin = val;
     });
+    this.authService.loggedInUsername.subscribe(val => {
+      this.username = val;
+    })
     this.authService.userExist();
   }
 

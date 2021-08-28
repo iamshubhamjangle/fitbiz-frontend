@@ -16,14 +16,6 @@ export class DataService {
   private REST_API_SERVER = "http://localhost:4200/server/";    //our proxy server running on spring boot
 
   constructor(private http: HttpClient) { }
-  
-  postWorkoutForm(workout: Workout): Observable<any> {
-    return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', workout);
-  }
-  
-  postMealForm(mealId: any): Observable<any> {
-    return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', mealId);
-  }
 
   postSignInData(signInData: any): Observable<any> {
     console.log(signInData);
@@ -33,6 +25,14 @@ export class DataService {
   postSignUpData(reqBody: any): Observable<any> {
     console.log(reqBody);
     return this.http.post(this.REST_API_SERVER + 'users/signup', reqBody, {responseType: 'text'});
+  }
+  
+  postWorkoutForm(workout: Workout): Observable<any> {
+    return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', workout);
+  }
+  
+  postMealForm(mealId: any): Observable<any> {
+    return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', mealId);
   }
 
   getMealItems(): Observable<MealData[]> {
