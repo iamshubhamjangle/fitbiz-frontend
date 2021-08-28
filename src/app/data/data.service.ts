@@ -29,7 +29,12 @@ export class DataService {
     console.log(signInData);
     return this.http.post(this.REST_API_SERVER + `users/signin?username=${signInData.username}&password=${signInData.password}`, '', {responseType: 'text'});
   }
-  
+
+  postSignUpData(reqBody: any): Observable<any> {
+    console.log(reqBody);
+    return this.http.post(this.REST_API_SERVER + 'users/signup', reqBody, {responseType: 'text'});
+  }
+
   getMealItems(): Observable<MealData[]> {
     return this.http.get<MealData[]>(this.REST_API_SERVER + '/meal-list');
   }

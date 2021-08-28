@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Form, NgForm } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/data/auth.service';
@@ -14,13 +14,14 @@ export class AuthComponent implements OnInit {
 
   signInActive = true;
   postError = false;
+  forminfo = false;
   postErrorMessage = '';
-  
-  constructor(private dataService: DataService, private route:ActivatedRoute, private authService: AuthService) { }
+
+  constructor(private dataService: DataService, private route: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      if(params['page'] == 'signup'){
+      if (params['page'] == 'signup') {
         this.signInActive = false;
       }
     })
@@ -35,39 +36,62 @@ export class AuthComponent implements OnInit {
   }
 
   onSignInSubmit(form1: NgForm) {
-    var signInData = {
-      username: form1.value.username,
-      password: form1.value.password
-    }
+    // console.log(form1.value);
 
-    console.log(signInData);
-
-    if(form1.valid) {
+    if (form1.valid) {
       this.postError = false;
-      this.dataService.postSignInData(signInData).subscribe(
+      this.dataService.postSignInData(form1.value).subscribe(
         result => this.onPostSuccess(result),
         error => this.onHttpError(error, "Incorrect username/password"),
-        );
+      );
     } else {
       this.onHttpError(null, "Please enter valid username/password")
     }
   }
 
   onSignUpSubmit(form2: NgForm) {
-    if(form2.invalid){
-      this.onHttpError(null, "Please enter valid username/password")
-      return;
-    }    
-    if(form2.value.password === form2.value.confirmPassword) {
-      this.postError = false;
-      console.log(form2.value);
+    if (form2.valid) {
+      if (form2.value.password === form2.value.confirmPassword) {
+        this.postError = false;
+        this.forminfo = false;
+        console.log(form2.value);
+
+        var body = {
+          "username": form2.value.username,
+          "email": form2.value.email,
+          "password": form2.value.password,
+          "roles": [
+            "ROLE_CLIENT"
+          ]
+        }
+
+        this.dataService.postSignUpData(body).subscribe(
+          result => this.onPostSuccess(result),
+          error => this.onSignUpError(error)
+        )
+      } else {
+        this.onHttpError(null, "Your password don't match!")
+      }
     } else {
-      this.onHttpError(null, "Your password don't match!")
+      this.forminfo = true;
+    }
+  }
+
+  onSignUpError(error: any): void {
+    if (error.status === 422) {
+      this.postErrorMessage = 'username already exist!';
+      this.postError = true;
+    } else if (error.status === 417) {
+      this.postErrorMessage = 'Email already exist!';
+      this.postError = true;
+    } else {
+      this.postErrorMessage = 'Some went wrong...';
+      this.postError = true;
     }
   }
 
   onHttpError(errorResponse: any, message: string) {
-    console.log('Error: ', errorResponse);
+    // console.log('Error: ', errorResponse);
     this.postError = true;
     this.postErrorMessage = message;
   }

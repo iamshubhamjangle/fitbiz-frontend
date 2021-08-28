@@ -18,15 +18,22 @@
         <!-- signup form -->
         <form class="p-3" [hidden]="signInActive" #form2="ngForm" (ngSubmit)="onSignUpSubmit(form2)">
             <div class="d-flex flex-column justify-content-center">
-                <input class="inputField" name="username" type="text" placeholder="Username" required ngModel>
-                <input class="inputField" name="password" type="text" placeholder="Password" type="password" required ngModel>
-                <input class="inputField" name="confirmPassword" type="text" placeholder="Confirm password" type="password" required ngModel>
+                <input class="inputField" name="email" type="text" placeholder="Email" required ngModel email>
+                <input class="inputField" name="username" type="text" placeholder="Username" minlength="4" required ngModel>
+                <input class="inputField" name="password" type="text" placeholder="Password" type="password" minlength="8" required ngModel>
+                <input class="inputField" name="confirmPassword" type="text" placeholder="Confirm password" type="password" minlength="8" required ngModel>
                 <button type="submit" class="btn btn-primary rounded-pill">Signup</button>
             </div>
         </form>
         
         <div [hidden]="!postError" class="alert alert-danger p-2 mx-3">
             {{ postErrorMessage }}
+        </div>
+
+        <div [hidden]="!forminfo" class="alert alert-danger p-2 mx-3">
+            <p class="m-0">Please enter valid email</p>
+            <p class="m-0">Username must be atleast 4 character</p>
+            <p class="m-0">Password must be atleast 8 character</p>
         </div>
 
         <div class="p-2"></div>
