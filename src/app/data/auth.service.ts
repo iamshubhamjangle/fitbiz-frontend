@@ -13,8 +13,8 @@ export class AuthService {
   public loggedInUsername = new Subject<string>();
  
 
-  saveTokenToLocalStorage(token: string){
-    localStorage.setItem('currentUser', JSON.stringify({ token: token, name: 'Shubham' }));
+  saveTokenToLocalStorage(token: string, username: string){
+    localStorage.setItem('currentUser', JSON.stringify({ token: token, name: username }));
     this.isUserLoggedIn.next(true);
     this.router.navigate(['/']);
   }
@@ -26,8 +26,11 @@ export class AuthService {
 
   userExist(): boolean {
     var user = localStorage.getItem('currentUser');
+    
     if(user != null){
+      var jsonUser = JSON.parse(user);
       this.isUserLoggedIn.next(true);
+      this.loggedInUsername.next(jsonUser.name);
       return true;
     }
     return false;
@@ -41,10 +44,6 @@ export class AuthService {
     }
     this.isUserLoggedIn.next(false);
     return null;
-  }
-
-  setUserName(name: string) {
-    this.loggedInUsername.next(name);
   }
 
 }
