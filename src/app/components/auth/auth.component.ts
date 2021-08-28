@@ -99,10 +99,7 @@ export class AuthComponent implements OnInit {
 
   onPostSuccess(result: any) {
     const jsonResult = JSON.parse(result);
-    this.authService.saveTokenToLocalStorage(jsonResult.token);
-    this.authService.setUserName(jsonResult.username);
-    console.log(JSON.parse(result).token);
-    console.log(JSON.parse(result).username);
+    this.authService.saveTokenToLocalStorage(jsonResult.token, jsonResult.username);
     this.postError = false;
   }
 
