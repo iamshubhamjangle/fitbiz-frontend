@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, interval  } from 'rxjs';
+import { AuthService } from 'src/app/data/auth.service';
 import { DataService } from 'src/app/data/data.service';
 import { Exercise } from 'src/app/models/exercise';
 
@@ -11,7 +12,7 @@ import { Exercise } from 'src/app/models/exercise';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private dataService: DataService) { }
+  constructor(private router: Router, private dataService: DataService, private authService: AuthService) { }
   exerciseData!: Observable<Exercise[]>;
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { AuthService } from 'src/app/data/auth.service';
 import { DataService } from 'src/app/data/data.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class AuthComponent implements OnInit {
   postError = false;
   postErrorMessage = '';
   
-  constructor(private dataService: DataService, private route:ActivatedRoute) { }
+  constructor(private dataService: DataService, private route:ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -34,11 +35,8 @@ export class AuthComponent implements OnInit {
   }
 
   onSignInSubmit(form1: NgForm) {
-    // console.log('in onSubmit: ' + form1.submitted + " form-valid: " + form1.valid);
-    // console.log(form1.value);
-
     var signInData = {
-      username: form1.value.userName,
+      username: form1.value.username,
       password: form1.value.password
     }
 
@@ -74,8 +72,8 @@ export class AuthComponent implements OnInit {
     this.postErrorMessage = message;
   }
 
-  onPostSuccess(successResponse: any) {
-    console.log('success: ', successResponse);
+  onPostSuccess(token: any) {
+    this.authService.saveTokenToLocalStorage(token);
     this.postError = false;
   }
 

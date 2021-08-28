@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
 
 import { MealData } from '../models/mealData';
 import { Exercise } from '../models/exercise';
@@ -27,6 +26,7 @@ export class DataService {
   }
 
   postSignInData(signInData: any): Observable<any> {
+    console.log(signInData);
     return this.http.post(this.REST_API_SERVER + `users/signin?username=${signInData.username}&password=${signInData.password}`, '', {responseType: 'text'});
   }
   
