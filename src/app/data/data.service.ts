@@ -31,16 +31,17 @@ export class DataService {
     return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', workout);
   }
   
-  postMealForm(mealId: any): Observable<any> {
-    return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', mealId);
+  postMealForm(requestBody: any): Observable<any> {
+    console.log(requestBody);
+    return this.http.post(this.REST_API_SERVER + 'meal-data-user', requestBody, {responseType: 'text'});
   }
 
-  getMealItems(): Observable<MealData[]> {
-    return this.http.get<MealData[]>(this.REST_API_SERVER + '/meal-list');
+  getMealListItems(): Observable<MealList[]> {
+    return this.http.get<MealList[]>(this.REST_API_SERVER + '/meal-list');
   }
   
-  getMealListData(): Observable<MealList[]> {
-    return this.http.get<MealList[]>(this.REST_API_SERVER + '/meal-data-user');
+  getMealDataItemForUser(): Observable<MealData[]> {
+    return this.http.get<MealData[]>(this.REST_API_SERVER + '/meal-data-user');
   }
   
   getWorkoutLogData(): Observable<Workout[]> {

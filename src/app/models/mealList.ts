@@ -1,6 +1,5 @@
 export interface MealList {
-    id: string,
-    date: string,
+    mealId: string,
     mealName: string,
     calories: string,
     carbs: string,

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/data/auth.service';
 import { DataService } from 'src/app/data/data.service';
 

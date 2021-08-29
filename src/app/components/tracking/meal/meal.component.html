@@ -30,10 +30,9 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <select class="form-select" name="dropdownMealId" aria-label="Select a food item" 
-                        ngModel #myngDropdown="ngModel"
+                    <select class="form-select" name="dropdownMealId" ngModel #myngDropdown="ngModel"
                         [class.field-error]="form.submitted  && myngDropdown.invalid" required>                
-                        <option *ngFor="let item of mealListData | async" value="{{ item.id }}"> {{ item.mealName }} </option>
+                        <option *ngFor="let item of mealListItems | async" value="{{ item.mealId }}"> {{ item.mealName }} </option>
                     </select>
                 </div>
                 <div class="col-3"> 
@@ -70,8 +69,8 @@
                     <th scope="col">actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let item of mealListData | async">
+            <!-- <tbody>
+                <tr *ngFor="let item of mealDataItemsForUser | async">
                     <td scope="row">{{ item.date }}</td>
                     <td>{{ item.mealName }}</td>
                     <td>{{ item.calories }}</td>
@@ -80,7 +79,7 @@
                     <td>{{ item.proteins }}</td>
                     <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
                 </tr>
-            </tbody>
+            </tbody> -->
         </table>
     </div>
 </div>
