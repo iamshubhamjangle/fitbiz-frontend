@@ -53,5 +53,8 @@ export class DataService {
     return this.http.get<Exercise[]>(this.REST_API_SERVER + '/exercise');
   }
   
+  deleteMealDataItem(item: number): Observable<any> {
+    return this.http.delete(this.REST_API_SERVER + 'meal-data-user/' + item, {responseType: 'text'});
+  }
   // return of();
 }

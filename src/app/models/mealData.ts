@@ -1,7 +1,7 @@
 import { MealList } from "./mealList";
 
 export interface MealData {
-    mealDataId: string,
+    uid: number,
     userId: string,
     date: string
     mealList: MealList,

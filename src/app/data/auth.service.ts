@@ -16,6 +16,7 @@ export class AuthService {
   saveTokenToLocalStorage(token: string, username: string){
     localStorage.setItem('currentUser', JSON.stringify({ token: token, name: username }));
     this.isUserLoggedIn.next(true);
+    this.loggedInUsername.next(username);
     this.router.navigate(['/']);
   }
 

@@ -1,12 +1,14 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({  providedIn: 'root' })
 export class ApiInterceptorService implements HttpInterceptor{
 
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // return next.handle(request);
@@ -24,7 +26,6 @@ export class ApiInterceptorService implements HttpInterceptor{
     }
 
     console.log('APII - other');
-
     let user = localStorage.getItem('currentUser');
     let token = '';
 
@@ -46,11 +47,14 @@ export class ApiInterceptorService implements HttpInterceptor{
     return next.handle(requestWithHeaders).pipe(catchError(err => {
       if(err instanceof HttpErrorResponse) {
         if(err.status === 400) {
-          console.log("Unauthorized: 400");
-          // Handle unauthorized error  // logout() user
+          console.log("Server down: 400");
+        } else if(err.status === 403) {
+          console.log("Unauthorized Request: 403")
+          this.authService.removeTokenFromLocalStorage();
+          this.router.navigateByUrl("/login?page=signin")
+          this.router
         } else if(err.status === 500) {
           console.log("Server is not responding: 500")
-          // Handler internal server error // alert("Try after some time.")
         }
       }
       return new Observable<HttpEvent<any>>();

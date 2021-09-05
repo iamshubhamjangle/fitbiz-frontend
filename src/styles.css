@@ -19,3 +19,7 @@
 .cursive-font {
     font-family: 'Pacifico', cursive;
 }
+
+.my-pointer {
+    cursor: pointer;
+}
