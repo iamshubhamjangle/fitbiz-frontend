@@ -22,13 +22,14 @@ export class DataService {
     return this.http.post(this.REST_API_SERVER + `users/signin?username=${signInData.username}&password=${signInData.password}`, '', {responseType: 'text'});
   }
 
-  postSignUpData(reqBody: any): Observable<any> {
-    console.log(reqBody);
-    return this.http.post(this.REST_API_SERVER + 'users/signup', reqBody, {responseType: 'text'});
+  postSignUpData(requestBody: any): Observable<any> {
+    console.log(requestBody);
+    return this.http.post(this.REST_API_SERVER + 'users/signup', requestBody, {responseType: 'text'});
   }
   
-  postWorkoutForm(workout: Workout): Observable<any> {
-    return this.http.post('https://putsreq.com/utEX0ksRdGqFaAqa3757', workout);
+  postWorkoutForm(requestBody: Workout): Observable<any> {
+    console.log(requestBody);
+    return this.http.post(this.REST_API_SERVER + 'workout-log-user', requestBody, {responseType: 'text'});
   }
   
   postMealForm(requestBody: any): Observable<any> {

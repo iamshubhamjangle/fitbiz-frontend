@@ -32,7 +32,7 @@
                 <div class="col">
                     <select class="form-select" name="dropdownMealId" ngModel #myngDropdown="ngModel"
                         [class.field-error]="form.submitted  && myngDropdown.invalid" required>                
-                        <option *ngFor="let item of mealListItems | async" value="{{ item.mealId }}"> {{ item.mealName }} </option>
+                        <option *ngFor="let item of mealListItems" value="{{ item.mealId }}"> {{ item.mealName }} </option>
                     </select>
                 </div>
                 <div class="col-3"> 
@@ -69,17 +69,17 @@
                     <th scope="col">actions</th>
                 </tr>
             </thead>
-            <!-- <tbody>
-                <tr *ngFor="let item of mealDataItemsForUser | async">
+            <tbody>
+                <tr *ngFor="let item of mealDataItemsForUser">
                     <td scope="row">{{ item.date }}</td>
-                    <td>{{ item.mealName }}</td>
-                    <td>{{ item.calories }}</td>
-                    <td>{{ item.carbs }}</td>
-                    <td>{{ item.fats }}</td>
-                    <td>{{ item.proteins }}</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>
+                    <td>{{ item.mealList.mealName }}</td>
+                    <td>{{ item.mealList.calories }}</td>
+                    <td>{{ item.mealList.carbs }}</td>
+                    <td>{{ item.mealList.fats }}</td>
+                    <td>{{ item.mealList.proteins }}</td>
+                    <td><i class="fas fa-trash"></i></td>
                 </tr>
-            </tbody> -->
+            </tbody>
         </table>
     </div>
 </div>

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
-import { Observable } from 'rxjs/internal/Observable';
-
 import { DataService } from 'src/app/data/data.service';
 import { MealData } from 'src/app/models/mealData';
 import { MealList } from 'src/app/models/mealList';
@@ -23,15 +20,13 @@ export class MealComponent implements OnInit {
   postError = false;
   postSuccess = false;
   postErrorMessage = '';
-  mealListItems!: Observable<MealList[]>;
-  mealDataItemsForUser!: Observable<MealData[]>;
+  mealListItems: MealList[] = [];
+  mealDataItemsForUser: MealData[] = [];
 
   ngOnInit(): void {
-    this.mealListItems = this.dataService.getMealListItems();
-    this.mealDataItemsForUser = this.dataService.getMealDataItemForUser();
-    // this.mealDataItemsForUser.subscribe(val => {
-    //   console.log(val)
-    // });
+    this.dataService.getMealListItems().subscribe(items => this.mealListItems = items);
+    this.dataService.getMealDataItemForUser().subscribe(items => this.mealDataItemsForUser = items);
+    // this.dataService.getMealDataItemForUser().subscribe(items => console.log(items));
   }
   
   toggleFormVisibility() {
@@ -40,11 +35,12 @@ export class MealComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log('in onSubmit: ' + form.submitted + " form-valid: " + form.valid);
-    console.log("Form Selected Id: ", form.value.dropdownMealId);
+    // console.log('in onSubmit: ' + form.submitted + " form-valid: " + form.valid);
+    // console.log("Form Selected Id: ", form.value.dropdownMealId);
 
     let currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
     let mealIdSelected = parseInt(form.value.dropdownMealId);
+    console.log('selected meal id: ' + mealIdSelected);
 
     var requestBody = {
       mealId: mealIdSelected,
@@ -74,9 +70,11 @@ export class MealComponent implements OnInit {
     console.log('success: ', successResponse),
     this.postSuccess = true;
     this.postError = false;
+    window.location.reload();
   }
 
   reloadMealList() {
-    
+    // this.dataService.getMealListItems().subscribe(items => this.mealListItems = items);
+    window.location.reload();
   }
 }

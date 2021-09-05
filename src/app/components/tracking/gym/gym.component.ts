@@ -17,7 +17,7 @@ export class GymComponent implements OnInit {
   postSuccess = false;
   postError = false;
   postErrorMessage = '';
-  workoutLogData!: Observable<Workout[]>;
+  workoutLogData: Workout[] = [];
 
   originalWorkout : Workout = {
     id: '',
@@ -35,14 +35,14 @@ export class GymComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.workoutLogData = this.dataService.getWorkoutLogData();
+    this.dataService.getWorkoutLogData().subscribe(items => this.workoutLogData = items);
   }
 
-  showMyContainer: boolean = true;
+  showMyContainer: boolean = false;
   
   demoButtonClick() {
     this.showMyContainer = !this.showMyContainer;
-    $('i').toggleClass('fa-chevron-down fa-chevron-up');
+    $('i').toggleClass('fa-chevron-up fa-chevron-down');
   }
 
   onSubmit(form: NgForm){
@@ -69,6 +69,7 @@ export class GymComponent implements OnInit {
     console.log('success: ', successResponse),
     this.postSuccess = true;
     this.postError = false;
+    window.location.reload();
   }
 
 }

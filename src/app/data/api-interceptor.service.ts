@@ -9,11 +9,11 @@ export class ApiInterceptorService implements HttpInterceptor{
   constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("In Api Interceptor service!");
     // return next.handle(request);
+    // console.log("AAPII");
 
     if (request.url.includes("signin") || request.url.includes("signup")){
-      console.log('In Api Interceptor service --> signin/signup add headers');
+      console.log('APII - signin/signup');
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
       });
@@ -23,8 +23,7 @@ export class ApiInterceptorService implements HttpInterceptor{
       return next.handle(requestWithHeaders);
     }
 
-    console.log('In Api Interceptor service --> other url add headers');
-    // return next.handle(request);
+    console.log('APII - other');
 
     let user = localStorage.getItem('currentUser');
     let token = '';
