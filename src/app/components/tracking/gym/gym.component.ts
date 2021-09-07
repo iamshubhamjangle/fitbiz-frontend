@@ -17,7 +17,9 @@ export class GymComponent implements OnInit {
   postSuccess = false;
   postError = false;
   postErrorMessage = '';
-  workoutLogData: Workout[] = [];
+  originalWorkoutLogData: Workout[] = [];
+  showMyContainer: boolean = false;
+  inUpdateMode: boolean = false;
 
   originalWorkout : Workout = {
     id: '',
@@ -35,10 +37,9 @@ export class GymComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.dataService.getWorkoutLogData().subscribe(items => this.workoutLogData = items);
+    this.dataService.getWorkoutLogData().subscribe(items => this.originalWorkoutLogData = items);
   }
 
-  showMyContainer: boolean = false;
   
   demoButtonClick() {
     this.showMyContainer = !this.showMyContainer;
@@ -70,6 +71,43 @@ export class GymComponent implements OnInit {
     this.postSuccess = true;
     this.postError = false;
     window.location.reload();
+  }
+
+  onEditWorkoutItem(choosedItemId: any) {
+    // console.log("onEditItemCLick: " + choosedItemId + " " + typeof(choosedItemId))
+    // console.log(this.workoutLogData);
+    
+    let item = JSON.parse(JSON.stringify(this.originalWorkoutLogData));
+
+    for(let i=0; i < item.length; i++) {
+      if(item[i].id == choosedItemId){
+        // console.log(item[i]);
+        this.workout = item[i];
+        // console.log(this.workout)
+        this.showMyContainer = true;
+        this.inUpdateMode = true;
+      }
+    }
+  }
+
+  onDeleteWorkoutItem(item: any) {
+    // console.log("onDeleteItemCLick: " + item + " " + typeof(item))
+    this.dataService.deleteWorkoutItem(item).subscribe(
+      result => this.onPostSuccess(result),
+      error => this.onHttpError(error)
+    )
+  }
+
+  onUpdateSubmit() {
+    this.dataService.updateWorkoutItem(this.workout).subscribe(
+      result => this.onPostSuccess(result),
+      error => this.onHttpError(error)
+    )
+  }
+
+  onUpdateCancel() {
+    this.workout = this.originalWorkout;
+    this.inUpdateMode = false;
   }
 
 }

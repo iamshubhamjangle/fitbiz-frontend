@@ -38,23 +38,31 @@ export class DataService {
   }
 
   getMealListItems(): Observable<MealList[]> {
-    return this.http.get<MealList[]>(this.REST_API_SERVER + '/meal-list');
+    return this.http.get<MealList[]>(this.REST_API_SERVER + 'meal-list');
   }
   
   getMealDataItemForUser(): Observable<MealData[]> {
-    return this.http.get<MealData[]>(this.REST_API_SERVER + '/meal-data-user');
+    return this.http.get<MealData[]>(this.REST_API_SERVER + 'meal-data-user');
   }
   
   getWorkoutLogData(): Observable<Workout[]> {
-    return this.http.get<Workout[]>(this.REST_API_SERVER + '/workout-log-user');
+    return this.http.get<Workout[]>(this.REST_API_SERVER + 'workout-log-user');
   }
   
   getExerciseData(): Observable<Exercise[]> {
-    return this.http.get<Exercise[]>(this.REST_API_SERVER + '/exercise');
+    return this.http.get<Exercise[]>(this.REST_API_SERVER + 'exercise');
   }
   
   deleteMealDataItem(item: number): Observable<any> {
     return this.http.delete(this.REST_API_SERVER + 'meal-data-user/' + item, {responseType: 'text'});
+  }
+
+  deleteWorkoutItem(item: number): Observable<any> {
+    return this.http.delete(this.REST_API_SERVER + 'workout-log-user/' + item, {responseType: 'text'});
+  }
+
+  updateWorkoutItem(workout: Workout): Observable<any> {
+    return this.http.put(this.REST_API_SERVER + 'workout-log-user/', workout, {responseType: 'text'});
   }
   // return of();
 }

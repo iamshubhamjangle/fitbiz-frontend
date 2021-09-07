@@ -63,7 +63,13 @@
                 </div>                
             </div>
             <div class="row justify-content-end mt-3">
-                <div class="col-3">
+                <div class="col-3" *ngIf="inUpdateMode">
+                    <button (click)="onUpdateCancel()" class="btn btn-danger" style="width:100%">Cancel Update</button>
+                </div>
+                <div class="col-3" *ngIf="inUpdateMode">
+                    <button (click)="onUpdateSubmit()" class="btn btn-primary" style="width:100%">Update</button>
+                </div>
+                <div class="col-3" [hidden]="inUpdateMode">
                     <button type="submit" class="btn btn-primary" style="width:100%">Submit</button>
                 </div>
             </div>
@@ -109,7 +115,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of workoutLogData">
+                <tr *ngFor="let item of originalWorkoutLogData">
                     <td scope="row">{{ item.date }}</td>
                     <td>{{ item.workoutName }}</td>
                     <td>{{ item.weight1 }}</td>
@@ -118,7 +124,10 @@
                     <td>{{ item.rep2 }}</td>
                     <td>{{ item.weight3 }}</td>
                     <td>{{ item.rep3 }}</td>
-                    <td><i class="far fa-edit mx-3"></i><i class="fas fa-trash"></i></td>                   
+                    <td>
+                        <i class="far fa-edit mx-3" (click)="onEditWorkoutItem(item.id)"></i>
+                        <i class="fas fa-trash" (click)="onDeleteWorkoutItem(item.id)"></i>
+                    </td>                   
                 </tr>
             </tbody>
         </table>
