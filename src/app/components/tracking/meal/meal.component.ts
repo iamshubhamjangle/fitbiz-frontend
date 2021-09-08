@@ -26,7 +26,6 @@ export class MealComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getMealListItems().subscribe(items => this.mealListItems = items);
     this.dataService.getMealDataItemForUser().subscribe(items => this.mealDataItemsForUser = items);
-    this.dataService.getMealDataItemForUser().subscribe(items => console.log(items));
   }
   
   toggleFormVisibility() {

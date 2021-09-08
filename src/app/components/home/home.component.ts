@@ -13,11 +13,11 @@ import { Exercise } from 'src/app/models/exercise';
 export class HomeComponent implements OnInit {
 
   constructor(private router: Router, private dataService: DataService, private authService: AuthService) { }
-  exerciseData!: Observable<Exercise[]>;
+  exerciseData: Exercise[] = [];
 
 
   ngOnInit(): void {
-    this.exerciseData = this.dataService.getExerciseData();
+    this.dataService.getExerciseData().subscribe(items => this.exerciseData = items);
   }
 
   onMealCardClick(){
