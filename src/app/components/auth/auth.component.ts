@@ -89,10 +89,20 @@ export class AuthComponent implements OnInit {
     }
   }
 
-  onHttpError(errorResponse: any, message: string) {
-    // console.log('Error: ', errorResponse);
-    this.postError = true;
-    this.postErrorMessage = message;
+  onHttpError(error: any, message: string) {
+    if (error.status === 422) {
+      this.postErrorMessage = 'username already exist!';
+      this.postError = true;
+    } else if (error.status === 417) {
+      this.postErrorMessage = 'Email already exist!';
+      this.postError = true;
+    } else if (error.status === 504) {
+      this.postErrorMessage = 'Server down, Please try again later!';
+      this.postError = true;
+    } else {
+      this.postErrorMessage = 'Some went wrong...';
+      this.postError = true;
+    }
   }
 
   onPostSuccess(result: any) {

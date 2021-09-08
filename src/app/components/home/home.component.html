@@ -22,7 +22,7 @@
             <div class="carousel-caption my-3 blur">
                 <h3 class="fw-bold">Track all your day</h3>
                 <p>Get precise tracking of your meal and your workouts.</p>
-                <button class="btn accent-color text-white btn-lg">Explore Workouts</button>
+                <button class="btn accent-color text-white btn-lg">Track Meal & Workouts</button>
             </div>
         </div>
         <div class="carousel-item">
@@ -31,7 +31,7 @@
                 <h3 class="fw-bold">Our health clubs</h3>
                 <p>Push your fitness further with our mix of facilities and we'll support you with advice on new and
                     better ways to train.</p>
-                <button class="btn accent-color text-white btn-lg">Explore Workouts</button>
+                <button class="btn accent-color text-white btn-lg">Step by Step Workouts</button>
             </div>
         </div>
     </div>
@@ -80,12 +80,15 @@
         <h3 class="text-center text-uppercase fw-bold text-decoration-underline">Explore Exercises</h3>
     </div>
 
+    <!-- <app-exercise-card></app-exercise-card> -->
+
     <div class="row g-3 ">
-        <div class="col-6 col-lg-3"  *ngFor="let item of exerciseData | async">
-            <div class="card text-white">
+        <div class="col-6 col-lg-3" *ngFor="let item of exerciseData | async">
+            <div class="card">
                 <img src={{item.imgUrl}} class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h3 class="card-title blur">{{ item.name }}</h3>                
+                <div class="card-body">
+                    <h3 class="card-title">{{item.name}}</h3>
+                    <span class="badge badge-pill badge-primary mx-1" *ngFor="let tag of item.tags">{{ tag.tagName }}</span>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ import { MealComponent }          from './components/tracking/meal/meal.componen
 import { PageNotFoundComponent }  from './components/page-not-found/page-not-found.component';
 import { ApiInterceptorService } from './data/api-interceptor.service';
 import { AuthComponent } from './components/auth/auth.component';
+import { ExerciseCardComponent } from './components/exercise-card/exercise-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthComponent } from './components/auth/auth.component';
     GymComponent,
     FooterComponent,
     PageNotFoundComponent,
-    AuthComponent
+    AuthComponent,
+    ExerciseCardComponent
   ],
   imports: [
     BrowserModule,
