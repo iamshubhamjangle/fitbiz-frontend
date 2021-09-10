@@ -10,17 +10,18 @@ import { DataService } from 'src/app/data/data.service';
   styleUrls: ['./gym.component.css']
 })
 export class GymComponent implements OnInit {
-  
+
   constructor(private dataService: DataService) { }
-  
+
   postSuccess = false;
   postError = false;
   postErrorMessage = '';
+  postSuccessMessage = '';
   originalWorkoutLogData: Workout[] = [];
   showMyContainer: boolean = false;
   inUpdateMode: boolean = false;
 
-  originalWorkout : Workout = {
+  originalWorkout: Workout = {
     id: '',
     date: '',
     workoutName: '',
@@ -32,60 +33,48 @@ export class GymComponent implements OnInit {
     rep3: ''
   }
 
-  workout : Workout = { ...this.originalWorkout };
+  workout: Workout = { ...this.originalWorkout };
 
 
   ngOnInit(): void {
     this.getDataFromService();
   }
-  
-  getDataFromService(){
+
+  getDataFromService() {
     this.dataService.getWorkoutLogData().subscribe(items => this.originalWorkoutLogData = items);
   }
-  
+
   demoButtonClick() {
     this.showMyContainer = !this.showMyContainer;
+    this.postSuccess = false;
+    this.postError = false;
     $('i').toggleClass('fa-chevron-up fa-chevron-down');
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(form: NgForm) {
     // console.log('in onSubmit: ' + form.submitted + " form-valid: " + form.valid);
-    if(form.valid){
+    if (form.valid) {
       this.dataService.postWorkoutForm(this.workout).subscribe(
-        result => this.onPostSuccess(result),
+        result => this.onPostSuccess(result + ' -- onSubmit', 'Your log was added successfully!'),
         error => this.onHttpError(error)
-        );
-      } else {
-        this.postError = true;
-        this.postSuccess = false;
-        this.postErrorMessage = 'Please enter all required fields.';
-      }
+      );
+    } else {
+      this.postErrorMessage = 'Please enter all required fields.';
+      this.postError = true;
+      this.postSuccess = false;
+    }
   }
 
-  onHttpError(errorResponse: any) {
-    console.log('Error: ', errorResponse);
-    this.postError = true;
-    this.postErrorMessage = errorResponse.error.errorMessage;    
-  }
-
-  onPostSuccess(successResponse: any) {
-    console.log('success: ', successResponse),
-    this.postSuccess = true;
-    this.postError = false;
-    this.getDataFromService();
-  }
 
   onEditWorkoutItem(choosedItemId: any) {
     // console.log("onEditItemCLick: " + choosedItemId + " " + typeof(choosedItemId))
     // console.log(this.workoutLogData);
-    
     let item = JSON.parse(JSON.stringify(this.originalWorkoutLogData));
 
-    for(let i=0; i < item.length; i++) {
-      if(item[i].id == choosedItemId){
-        // console.log(item[i]);
+    for (let i = 0; i < item.length; i++) {
+      if (item[i].id == choosedItemId) {
+        // console.log(item[i] + ' === ' + this.workout);
         this.workout = item[i];
-        // console.log(this.workout)
         this.showMyContainer = true;
         this.inUpdateMode = true;
       }
@@ -95,14 +84,14 @@ export class GymComponent implements OnInit {
   onDeleteWorkoutItem(item: any) {
     // console.log("onDeleteItemCLick: " + item + " " + typeof(item))
     this.dataService.deleteWorkoutItem(item).subscribe(
-      result => this.onPostSuccess(result),
+      result => this.onPostSuccess(result, 'Your log was deleted successfully!'),
       error => this.onHttpError(error)
     )
   }
 
   onUpdateSubmit() {
     this.dataService.updateWorkoutItem(this.workout).subscribe(
-      result => this.onPostSuccess(result),
+      result => this.onPostSuccess(result + ' -- onUpdate', 'Your log was updated successfully!'),
       error => this.onHttpError(error)
     )
   }
@@ -110,6 +99,28 @@ export class GymComponent implements OnInit {
   onUpdateCancel() {
     this.workout = this.originalWorkout;
     this.inUpdateMode = false;
+  }
+
+  onHttpError(errorResponse: any) {
+    console.log('Error: ', errorResponse);
+    this.postError = true;
+    this.postErrorMessage = errorResponse.error.errorMessage;
+  }
+
+  onPostSuccess(successResponse: any, message: string) {
+    console.log('success: ', successResponse);
+    // this.workout = this.originalWorkout;
+    // this.showMyContainer = false;
+    this.inUpdateMode = false;
+    this.postSuccessMessage = message;
+    this.postSuccess = true;
+    this.postError = false;
+    this.removeNotification();
+    this.getDataFromService();
+  }
+
+  removeNotification(){    
+    setTimeout(()=>{ this.postSuccess = false; }, 3000);
   }
 
 }

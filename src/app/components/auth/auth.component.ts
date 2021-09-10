@@ -105,8 +105,7 @@ export class AuthComponent implements OnInit {
     }
   }
 
-  onPostSuccess(result: any) {
-    const jsonResult = JSON.parse(result);
+  onPostSuccess(jsonResult: any) {
     this.authService.saveTokenToLocalStorage(jsonResult.token, jsonResult.username);
     this.postError = false;
   }

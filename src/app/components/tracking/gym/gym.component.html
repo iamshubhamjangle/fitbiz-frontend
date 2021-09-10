@@ -19,7 +19,7 @@
     <!-- Add New Form -->
     <div class="border rounded p-3" id="inputFormStyle" *ngIf="showMyContainer">
 
-        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <form #form="ngForm">
             <div class="row">
                 <div class="col-12 col-xl-6 col-xxl-3 mb-1 mb-xxl-0">
                   <input type="date" class="form-control" name="datepicker" aria-label="Date picker" 
@@ -70,7 +70,7 @@
                     <button (click)="onUpdateSubmit()" class="btn btn-primary" style="width:100%">Update</button>
                 </div>
                 <div class="col-3" [hidden]="inUpdateMode">
-                    <button type="submit" class="btn btn-primary" style="width:100%">Submit</button>
+                    <button (click)="onSubmit(form)" class="btn btn-primary" style="width:100%">Submit</button>
                 </div>
             </div>
         </form>
@@ -82,7 +82,7 @@
         </div>
 
         <div [hidden]="!postSuccess" class="alert alert-success p-2 mb-0 mt-3">
-            Your log has been added successfully!
+            {{ postSuccessMessage }}
         </div>
 
     </div>

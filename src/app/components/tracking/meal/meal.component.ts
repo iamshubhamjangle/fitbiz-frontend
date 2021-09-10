@@ -20,6 +20,7 @@ export class MealComponent implements OnInit {
   postError = false;
   postSuccess = false;
   postErrorMessage = '';
+  postSuccessMessage = '';
   mealListItems: MealList[] = [];
   mealDataItemsForUser: MealData[] = [];
 
@@ -53,7 +54,7 @@ export class MealComponent implements OnInit {
     if(form.valid){
       this.postError = false;
       this.dataService.postMealForm(requestBody).subscribe(
-        result => this.onPostSuccess(result),
+        result => this.onPostSuccess(result, 'Your log has been added successfully!'),
         error => this.onHttpError(error)
         );
       } else {
@@ -68,13 +69,17 @@ export class MealComponent implements OnInit {
     // console.log(typeof(item));
 
     this.dataService.deleteMealDataItem(item).subscribe(
-      result => this.onDeleteSuccess(result),
+      result => this.onDeleteSuccess(result, 'Your log has been deleted successfully!'),
       error => console.log(error)
     );
   }
 
-  onDeleteSuccess(successResponse: any) {
+  onDeleteSuccess(successResponse: any, message: string) {
     console.log('Success' + successResponse);
+    this.postSuccessMessage = message;
+    this.postSuccess = true;
+    this.postError = false;
+    this.removeNotification();
     this.reloadMealList()
   }
 
@@ -84,15 +89,21 @@ export class MealComponent implements OnInit {
     this.postErrorMessage = errorResponse.error.errorMessage;    
   }
 
-  onPostSuccess(successResponse: any) {
+  onPostSuccess(successResponse: any, message: string) {
     console.log('success: ', successResponse),
+    this.postSuccessMessage = message;
     this.postSuccess = true;
     this.postError = false;
-    this.reloadMealList()
+    this.removeNotification();
+    this.reloadMealList();
   }
 
   reloadMealList() {
     this.getDataFromService();
+  }
+
+  removeNotification(){    
+    setTimeout(()=>{ this.postSuccess = false; }, 3000);
   }
 
 }

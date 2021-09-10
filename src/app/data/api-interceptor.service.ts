@@ -12,20 +12,15 @@ export class ApiInterceptorService implements HttpInterceptor{
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // return next.handle(request);
-    // console.log("AAPII");
-
-    if (request.url.includes("signin") || request.url.includes("signup")){
-      console.log('APII - signin/signup');
-      const headers = new HttpHeaders({
+      if (request.url.includes("signin") || request.url.includes("signup")){
+        const headers = new HttpHeaders({
         'Content-Type': 'application/json',
       });
 
       const requestWithHeaders = request.clone({headers})
-
       return next.handle(requestWithHeaders);
     }
 
-    console.log('APII - other');
     let user = localStorage.getItem('currentUser');
     let token = '';
 

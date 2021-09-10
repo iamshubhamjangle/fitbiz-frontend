@@ -19,22 +19,22 @@ export class DataService {
 
   postSignInData(signInData: any): Observable<any> {
     console.log(signInData);
-    return this.http.post(this.REST_API_SERVER + `users/signin?username=${signInData.username}&password=${signInData.password}`, '', {responseType: 'text'});
+    return this.http.post(this.REST_API_SERVER + `users/signin?username=${signInData.username}&password=${signInData.password}`, '');
   }
 
   postSignUpData(requestBody: any): Observable<any> {
     console.log(requestBody);
-    return this.http.post(this.REST_API_SERVER + 'users/signup', requestBody, {responseType: 'text'});
+    return this.http.post(this.REST_API_SERVER + 'users/signup', requestBody);
   }
   
   postWorkoutForm(requestBody: Workout): Observable<any> {
     console.log(requestBody);
-    return this.http.post(this.REST_API_SERVER + 'workout-log-user', requestBody, {responseType: 'text'});
+    return this.http.post(this.REST_API_SERVER + 'workout-log-user', requestBody);
   }
   
   postMealForm(requestBody: any): Observable<any> {
     console.log(requestBody);
-    return this.http.post(this.REST_API_SERVER + 'meal-data-user', requestBody, {responseType: 'text'});
+    return this.http.post(this.REST_API_SERVER + 'meal-data-user', requestBody);
   }
 
   getMealListItems(): Observable<MealList[]> {
