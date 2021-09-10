@@ -116,7 +116,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of originalWorkoutLogData">
-                    <td scope="row">{{ item.date }}</td>
+                    <td scope="row">{{ item.date | date: 'dd MMM y'}}</td>
                     <td>{{ item.workoutName }}</td>
                     <td>{{ item.weight1 }}</td>
                     <td>{{ item.rep1 }}</td>

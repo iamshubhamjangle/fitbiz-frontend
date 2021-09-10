@@ -71,7 +71,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of mealDataItemsForUser">
-                    <td scope="row">{{ item.date }}</td>
+                    <td scope="row">{{ item.date | date: 'dd MMM y, hh:mm a' }}</td>
                     <td>{{ item.mealList.mealName }}</td>
                     <td>{{ item.mealList.calories }}</td>
                     <td>{{ item.mealList.carbs }}</td>
