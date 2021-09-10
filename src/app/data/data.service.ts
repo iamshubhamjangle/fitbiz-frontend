@@ -54,15 +54,17 @@ export class DataService {
   }
   
   deleteMealDataItem(item: number): Observable<any> {
-    return this.http.delete(this.REST_API_SERVER + 'meal-data-user/' + item, {responseType: 'text'});
+    return this.http.delete(this.REST_API_SERVER + `meal-data-user/${item}`);
   }
 
   deleteWorkoutItem(item: number): Observable<any> {
-    return this.http.delete(this.REST_API_SERVER + 'workout-log-user/' + item, {responseType: 'text'});
+    return this.http.delete(this.REST_API_SERVER + `workout-log-user/${item}`);
   }
 
   updateWorkoutItem(workout: Workout): Observable<any> {
-    return this.http.put(this.REST_API_SERVER + 'workout-log-user/', workout, {responseType: 'text'});
+    return this.http.put(this.REST_API_SERVER + 'workout-log-user/', workout);
   }
+  
+  // return this.http.put(this.REST_API_SERVER + 'workout-log-user/', workout, {responseType: 'text'});
   // return of();
 }

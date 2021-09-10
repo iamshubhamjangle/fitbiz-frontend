@@ -24,10 +24,14 @@ export class MealComponent implements OnInit {
   mealDataItemsForUser: MealData[] = [];
 
   ngOnInit(): void {
+    this.getDataFromService();
+  }
+  
+  getDataFromService() {
     this.dataService.getMealListItems().subscribe(items => this.mealListItems = items);
     this.dataService.getMealDataItemForUser().subscribe(items => this.mealDataItemsForUser = items);
   }
-  
+
   toggleFormVisibility() {
     this.showMyContainer = !this.showMyContainer;
     $('i').toggleClass('fa-chevron-down fa-chevron-up');
@@ -71,7 +75,7 @@ export class MealComponent implements OnInit {
 
   onDeleteSuccess(successResponse: any) {
     console.log('Success' + successResponse);
-    window.location.reload();
+    this.reloadMealList()
   }
 
   onHttpError(errorResponse: any) {
@@ -84,12 +88,11 @@ export class MealComponent implements OnInit {
     console.log('success: ', successResponse),
     this.postSuccess = true;
     this.postError = false;
-    window.location.reload();
+    this.reloadMealList()
   }
 
   reloadMealList() {
-    // this.dataService.getMealListItems().subscribe(items => this.mealListItems = items);
-    window.location.reload();
+    this.getDataFromService();
   }
 
 }

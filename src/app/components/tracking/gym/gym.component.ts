@@ -3,7 +3,6 @@ import * as $ from "jquery";
 import { NgForm } from '@angular/forms';
 import { Workout } from 'src/app/models/workout';
 import { DataService } from 'src/app/data/data.service';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-gym',
@@ -37,9 +36,12 @@ export class GymComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getDataFromService();
+  }
+  
+  getDataFromService(){
     this.dataService.getWorkoutLogData().subscribe(items => this.originalWorkoutLogData = items);
   }
-
   
   demoButtonClick() {
     this.showMyContainer = !this.showMyContainer;
@@ -70,7 +72,7 @@ export class GymComponent implements OnInit {
     console.log('success: ', successResponse),
     this.postSuccess = true;
     this.postError = false;
-    window.location.reload();
+    this.getDataFromService();
   }
 
   onEditWorkoutItem(choosedItemId: any) {
