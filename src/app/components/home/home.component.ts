@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   exerciseData: Exercise[] = [];
 
   ngOnInit(): void {
-    this.dataService.getExerciseData().subscribe(items => this.exerciseData = items);
+    this.dataService.getTop8ExerciseData().subscribe(items => this.exerciseData = items);
   }
 
   onMealCardClick(){

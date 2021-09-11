@@ -52,7 +52,11 @@ export class DataService {
   getExerciseData(): Observable<Exercise[]> {
     return this.http.get<Exercise[]>(this.REST_API_SERVER + 'exercise');
   }
-  
+
+  getTop8ExerciseData(): Observable<Exercise[]> {
+    return this.http.get<Exercise[]>(this.REST_API_SERVER + 'exercise/fetch-top8-only');
+  }
+
   deleteMealDataItem(item: number): Observable<any> {
     return this.http.delete(this.REST_API_SERVER + `meal-data-user/${item}`);
   }
