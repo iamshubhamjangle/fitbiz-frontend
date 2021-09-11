@@ -28,7 +28,7 @@ i.fas.fa-trash:hover {
 }
 
 #inputFormStyle {
-    background-color: #f5f5f5 !important
+    background-color: #f5f5f5 !important;
 }
 
 /*  When you need border only when user clicks submit add class to the field
