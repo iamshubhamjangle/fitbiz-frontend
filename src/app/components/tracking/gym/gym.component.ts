@@ -3,6 +3,7 @@ import * as $ from "jquery";
 import { NgForm } from '@angular/forms';
 import { Workout } from 'src/app/models/workout';
 import { DataService } from 'src/app/data/data.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-gym',
@@ -20,6 +21,7 @@ export class GymComponent implements OnInit {
   originalWorkoutLogData: Workout[] = [];
   showMyContainer: boolean = false;
   inUpdateMode: boolean = false;
+  date: string = moment().format('YYYY-MM-DD');
 
   originalWorkout: Workout = {
     id: '',
@@ -121,6 +123,10 @@ export class GymComponent implements OnInit {
 
   removeNotification(){    
     setTimeout(()=>{ this.postSuccess = false; }, 3000);
+  }
+
+  updateTheDateEventHandler(dateEmitted: string) {
+    this.date = dateEmitted;
   }
 
 }
