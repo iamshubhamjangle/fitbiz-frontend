@@ -13,6 +13,9 @@ import { PageNotFoundComponent }  from './components/page-not-found/page-not-fou
 import { ApiInterceptorService } from './data/api-interceptor.service';
 import { AuthComponent } from './components/auth/auth.component';
 import { ExerciseCardComponent } from './components/exercise-card/exercise-card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatepickerComponent } from './components/widgets/datepicker/datepicker.component';
+import { DateFilterPipe } from './pipes/date-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,16 @@ import { ExerciseCardComponent } from './components/exercise-card/exercise-card.
     FooterComponent,
     PageNotFoundComponent,
     AuthComponent,
-    ExerciseCardComponent
+    ExerciseCardComponent,
+    DatepickerComponent,
+    DateFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

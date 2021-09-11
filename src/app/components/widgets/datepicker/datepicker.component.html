@@ -1,0 +1,15 @@
+<form class="form-inline d-flex mx-auto">
+    <div class="form-group my-auto">
+        <div class="input-group">
+            <span class="fw-bold my-auto">
+                Date: 
+            </span>
+            <input class="form-control border-0 bg-light fw-bold" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (ngModelChange)="onDateSelected()">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary far fa-calendar-alt" (click)="d.toggle()" type="button"></button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- <pre>Model: {{ model | json }}</pre> -->

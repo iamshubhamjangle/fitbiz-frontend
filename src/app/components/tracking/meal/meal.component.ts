@@ -23,6 +23,7 @@ export class MealComponent implements OnInit {
   postSuccessMessage = '';
   mealListItems: MealList[] = [];
   mealDataItemsForUser: MealData[] = [];
+  date: string = moment().format('YYYY-MM-DD');
 
   ngOnInit(): void {
     this.getDataFromService();
@@ -104,6 +105,10 @@ export class MealComponent implements OnInit {
 
   removeNotification(){    
     setTimeout(()=>{ this.postSuccess = false; }, 3000);
+  }
+
+  updateTheDateEventHandler(dateEmitted: string) {
+    this.date = dateEmitted;
   }
 
 }
