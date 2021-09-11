@@ -43,12 +43,18 @@ export class ApiInterceptorService implements HttpInterceptor{
       if(err instanceof HttpErrorResponse) {
         if(err.status === 400) {
           console.log("Server down: 400");
-        } else if(err.status === 403) {
+        } 
+        else if(err.status === 403) {
           console.log("Unauthorized Request: 403")
           this.authService.removeTokenFromLocalStorage();
           this.router.navigateByUrl("/login?page=signin")
-          this.router
-        } else if(err.status === 500) {
+        } 
+        else if(err.status === 504) {
+          console.log("Server down: 504")
+          alert('Server Down! Please try again later!')
+          this.router.navigateByUrl("/")
+        } 
+        else if(err.status === 500) {
           console.log("Server is not responding: 500")
         }
       }
