@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Exercise } from 'src/app/models/exercise';
 
 @Component({
   selector: 'app-exercise-card',
@@ -11,5 +12,8 @@ export class ExerciseCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Input()
+  inputExerciseData: Exercise[] = [];
 
 }

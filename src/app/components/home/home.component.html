@@ -80,18 +80,14 @@
         <h3 class="text-center text-uppercase fw-bold text-decoration-underline">Explore Exercises</h3>
     </div>
 
-    <!-- <app-exercise-card></app-exercise-card> -->
+    <app-exercise-card [inputExerciseData]="exerciseData"></app-exercise-card>
 
-    <div class="row g-4">
-        <div class="col-6 col-lg-4 col-xl-3" *ngFor="let item of exerciseData">
-            <div class="card">
-                <img src={{item.imgUrl}} class="card-img" alt="...">
-                <div class="card-body">
-                    <h3 class="card-title">{{item.name}}</h3>
-                    <span class="badge badge-pill badge-primary mx-1" *ngFor="let tag of item.tags">{{ tag.tagName }}</span>
-                </div>
-            </div>
-        </div>
+    <!-- View all exercise button -->
+    <div class="m-5 text-center">
+        <button type="button" class="btn btn-lg btn-outline-danger">
+            Explore more 
+            <i class="fas fa-caret-right"></i>
+        </button>
     </div>
 
 </div>

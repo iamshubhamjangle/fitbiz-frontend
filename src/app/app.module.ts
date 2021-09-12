@@ -12,7 +12,7 @@ import { MealComponent }          from './components/tracking/meal/meal.componen
 import { PageNotFoundComponent }  from './components/page-not-found/page-not-found.component';
 import { ApiInterceptorService } from './data/api-interceptor.service';
 import { AuthComponent } from './components/auth/auth.component';
-import { ExerciseCardComponent } from './components/exercise-card/exercise-card.component';
+import { ExerciseCardComponent } from './components/widgets/exercise-card/exercise-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatepickerComponent } from './components/widgets/datepicker/datepicker.component';
 import { DateFilterPipe } from './pipes/date-filter.pipe';
