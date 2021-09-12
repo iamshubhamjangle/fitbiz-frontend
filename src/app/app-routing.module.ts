@@ -6,6 +6,7 @@ import { ExercisesComponent }     from './components/exercises/exercises.compone
 import { GymComponent }           from './components/tracking/gym/gym.component';
 import { MealComponent }          from './components/tracking/meal/meal.component';
 import { PageNotFoundComponent }  from './components/page-not-found/page-not-found.component';
+import { ExerciseDetailComponent } from './components/exercise-detail/exercise-detail.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'track-meal', component: MealComponent },
   { path: 'login', component: AuthComponent },
   { path: 'exercises', component: ExercisesComponent },
+  { path: 'exercise-detail', component: ExerciseDetailComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

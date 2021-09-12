@@ -1,6 +1,6 @@
 <div class="row g-4">
     <div class="col-6 col-lg-4 col-xl-3" *ngFor="let item of inputExerciseData | exerciseCategory:selectedCategory">
-        <div class="card">
+        <div class="card" (click)="onExerciseCardClick(item)">
             <img src={{item.imgUrl}} class="card-img" alt="...">
             <div class="card-body">
                 <h3 class="card-title">{{item.name}}</h3>

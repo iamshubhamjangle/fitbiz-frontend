@@ -1,1 +1,41 @@
-<p>exercise-detail works!</p>
+<div class="my-5"></div>
+
+<div class="container">
+
+    <!-- Title,descp,image row -->
+    <div class="row">
+        <div class="col-6">
+            <h1 class="fw-bold">{{exercise.name}}</h1>
+            <h5><span class="badge badge-pill badge-primary mx-1 my-3" *ngFor="let tag of exercise.tags">{{ tag.tagName }}</span></h5>
+            <p class="fs-5">{{exercise.description}}</p>        
+        </div>
+        <div class="col-6 my-auto">
+            <img class="img-fluid" src="{{exercise.imgUrl}}" alt="{{exercise.name}}">
+        </div>
+    </div>
+        
+    <!-- How to do exercise | steps -->
+    <div class="my-5"></div>
+
+    <h1 class="fw-bold">How can you do {{exercise.name}}?</h1>
+    
+    <div class="row mt-4" *ngFor="let step of exercise.steps; let i = index">
+        <div class="col-2 fw-bold fs-5">
+            Step {{i + 1}}
+        </div>
+        <div class="col">
+            <p class="fs-5">
+                {{step.description}}
+            </p>
+        </div>
+    </div>
+
+    <!-- Go back button -->
+    <div class="m-5 text-center">
+        <button type="button" class="btn btn-lg btn-outline-danger rounded-pill px-5" routerLink="/exercises">
+            <i class="fas fa-caret-left px-2"></i>
+            Go Back
+        </button>
+    </div>
+
+</div>

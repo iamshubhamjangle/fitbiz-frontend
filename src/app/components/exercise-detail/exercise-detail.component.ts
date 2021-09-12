@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Exercise } from 'src/app/models/exercise';
 
 @Component({
   selector: 'app-exercise-detail',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExerciseDetailComponent implements OnInit {
 
+  exercise: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(history.state);
+    this.exercise = history.state;
   }
+
 
 }

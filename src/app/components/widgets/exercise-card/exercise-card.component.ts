@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Exercise } from 'src/app/models/exercise';
 
 @Component({
@@ -8,7 +9,7 @@ import { Exercise } from 'src/app/models/exercise';
 })
 export class ExerciseCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,4 +20,7 @@ export class ExerciseCardComponent implements OnInit {
   @Input()
   selectedCategory: string = 'All';
 
+  onExerciseCardClick(exercise: any) {
+    this.router.navigateByUrl('/exercise-detail', {state: exercise});
+  }
 }
