@@ -18,6 +18,7 @@ import { DatepickerComponent } from './components/widgets/datepicker/datepicker.
 import { DateFilterPipe } from './pipes/date-filter.pipe';
 import { ExercisesComponent } from './components/exercises/exercises.component';
 import { ExerciseCategoryPipe } from './pipes/exercise-category.pipe';
+import { ExerciseDetailComponent } from './components/exercise-detail/exercise-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ExerciseCategoryPipe } from './pipes/exercise-category.pipe';
     DatepickerComponent,
     DateFilterPipe,
     ExercisesComponent,
-    ExerciseCategoryPipe
+    ExerciseCategoryPipe,
+    ExerciseDetailComponent
   ],
   imports: [
     BrowserModule,
