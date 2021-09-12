@@ -23,3 +23,13 @@
 .my-pointer {
     cursor: pointer;
 }
+
+.btn-outline-danger {
+    color: #FD6E4A !important;
+    border-color: #FD6E4A !important;
+}
+  
+.btn-outline-danger:hover {
+    background: #FD6E4A !important;
+    color: white !important;
+}

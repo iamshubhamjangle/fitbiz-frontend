@@ -1,1 +1,13 @@
-<p>exercises works!</p>
+<div class="container my-5">
+    <nav class="nav nav-pills nav-fill">
+        <a class="nav-link m-2" *ngFor="let item of exerciseCategories" 
+            [ngClass]="{'active': item === selectedCategory }"
+            (click)="changeSelectedCategory(item)">
+            {{item}}
+        </a>
+    </nav>
+
+    <div class="my-5"></div>
+
+    <app-exercise-card [inputExerciseData]="exerciseData" [selectedCategory]="selectedCategory"></app-exercise-card>
+</div>

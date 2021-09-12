@@ -16,4 +16,7 @@ export class ExerciseCardComponent implements OnInit {
   @Input()
   inputExerciseData: Exercise[] = [];
 
+  @Input()
+  selectedCategory: string = 'All';
+
 }
