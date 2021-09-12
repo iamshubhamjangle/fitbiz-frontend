@@ -4,12 +4,12 @@
 
     <!-- Title,descp,image row -->
     <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-lg-6 order-2 order-lg-1">
             <h1 class="fw-bold">{{exercise.name}}</h1>
             <h5><span class="badge badge-pill badge-primary mx-1 my-3" *ngFor="let tag of exercise.tags">{{ tag.tagName }}</span></h5>
             <p class="fs-5">{{exercise.description}}</p>        
         </div>
-        <div class="col-6 my-auto">
+        <div class="col-12 col-lg-6 order-1 order-lg-2 my-auto">
             <img class="img-fluid" src="{{exercise.imgUrl}}" alt="{{exercise.name}}">
         </div>
     </div>
@@ -20,7 +20,7 @@
     <h1 class="fw-bold">How can you do {{exercise.name}}?</h1>
     
     <div class="row mt-4" *ngFor="let step of exercise.steps; let i = index">
-        <div class="col-2 fw-bold fs-5">
+        <div class="col-3 col-lg-2 fw-bold fs-5">
             Step {{i + 1}}
         </div>
         <div class="col">
