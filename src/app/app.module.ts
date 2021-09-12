@@ -16,6 +16,7 @@ import { ExerciseCardComponent } from './components/widgets/exercise-card/exerci
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatepickerComponent } from './components/widgets/datepicker/datepicker.component';
 import { DateFilterPipe } from './pipes/date-filter.pipe';
+import { ExercisesComponent } from './components/exercises/exercises.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DateFilterPipe } from './pipes/date-filter.pipe';
     AuthComponent,
     ExerciseCardComponent,
     DatepickerComponent,
-    DateFilterPipe
+    DateFilterPipe,
+    ExercisesComponent
   ],
   imports: [
     BrowserModule,

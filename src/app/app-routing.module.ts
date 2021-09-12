@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthComponent } from './components/auth/auth.component';
-import { HomeComponent } from './components/home/home.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { GymComponent } from './components/tracking/gym/gym.component';
-import { MealComponent } from './components/tracking/meal/meal.component';
+import { NgModule }               from '@angular/core';
+import { RouterModule, Routes }   from '@angular/router';
+import { HomeComponent }          from './components/home/home.component';
+import { AuthComponent }          from './components/auth/auth.component';
+import { ExercisesComponent }     from './components/exercises/exercises.component';
+import { GymComponent }           from './components/tracking/gym/gym.component';
+import { MealComponent }          from './components/tracking/meal/meal.component';
+import { PageNotFoundComponent }  from './components/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'track-workout', component: GymComponent },
   { path: 'track-meal', component: MealComponent },
   { path: 'login', component: AuthComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: 'exercises', component: ExercisesComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
