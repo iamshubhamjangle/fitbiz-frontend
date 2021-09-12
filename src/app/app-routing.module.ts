@@ -23,10 +23,10 @@ export class AppRoutingModule { }
 
 
 // ROUTING
-// fitbiz.com   -- home
+// fitbiz.com
+// fitbiz.com/exercises
+// fitbiz.com/login?page=signin
+// fitbiz.com/login?page=signup
 // fitbiz.com/track-meal
 // fitbiz.com/track-workout
-// fitbiz.com/exercises
-// fitbiz.com/profile
-// fitbiz.com/login
-// 
+// fitbiz.com/**404**
