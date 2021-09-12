@@ -1,6 +1,8 @@
 <div class="container my-5">
+
+    <!-- Category pills -->
     <nav class="nav nav-pills nav-fill">
-        <a class="nav-link m-2" *ngFor="let item of exerciseCategories" 
+        <a class="nav-link m-2 my-pointer border border-primary rounded-pill" *ngFor="let item of exerciseCategories" 
             [ngClass]="{'active': item === selectedCategory }"
             (click)="changeSelectedCategory(item)">
             {{item}}
@@ -9,5 +11,6 @@
 
     <div class="my-5"></div>
 
+    <!-- Exercises Cards Grid -->
     <app-exercise-card [inputExerciseData]="exerciseData" [selectedCategory]="selectedCategory"></app-exercise-card>
 </div>
