@@ -17,7 +17,7 @@ export class ExercisesComponent implements OnInit {
 
   selectedCategory: string = 'All';
   exerciseData: Exercise[] = [];
-  exerciseCategories: string[] = ['All','Strength', 'Power', 'Yoga', 'Stretching', 'Power2', 'Yoga2', 'Stretching2'];
+  exerciseCategories: string[] = ['All','Strength', 'Endurance', 'Yoga', 'Flexibility'];
   
   changeSelectedCategory(item: string) {
     this.selectedCategory = item;
