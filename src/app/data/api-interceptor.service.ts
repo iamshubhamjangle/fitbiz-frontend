@@ -12,8 +12,8 @@ export class ApiInterceptorService implements HttpInterceptor{
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // return next.handle(request);
-      if (request.url.includes("signin") || request.url.includes("signup")){
-        const headers = new HttpHeaders({
+    if (request.url.includes("signin") || request.url.includes("signup") || request.url.includes("exercise")){
+      const headers = new HttpHeaders({
         'Content-Type': 'application/json',
       });
 

@@ -101,6 +101,7 @@ export class GymComponent implements OnInit {
   onUpdateCancel() {
     this.workout = this.originalWorkout;
     this.inUpdateMode = false;
+    this.showMyContainer = false;
   }
 
   onHttpError(errorResponse: any) {

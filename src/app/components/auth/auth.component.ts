@@ -14,6 +14,7 @@ export class AuthComponent implements OnInit {
   signInActive = true;
   postError = false;
   forminfo = false;
+  formPasswordMatch = false;
   postErrorMessage = '';
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private authService: AuthService) { }
@@ -52,6 +53,7 @@ export class AuthComponent implements OnInit {
     if (form2.valid) {
       if (form2.value.password === form2.value.confirmPassword) {
         this.postError = false;
+        this.formPasswordMatch = false;
         this.forminfo = false;
         console.log(form2.value);
 
@@ -69,7 +71,7 @@ export class AuthComponent implements OnInit {
           error => this.onSignUpError(error)
         )
       } else {
-        this.onHttpError(null, "Your password don't match!")
+        this.formPasswordMatch = true;
       }
     } else {
       this.forminfo = true;
