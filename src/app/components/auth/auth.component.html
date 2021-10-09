@@ -41,6 +41,10 @@
             <p class="m-0">Both Passwords must match</p>
         </div>
 
+        <div [hidden]="!formSignInIsBlank" class="alert alert-danger p-2 mx-3">
+            <p class="m-0">Please Enter a Username and Password</p>
+        </div>
+
         <div class="p-2"></div>
         <!-- {{ form1.value | json }}
         {{ form2.value | json }} -->

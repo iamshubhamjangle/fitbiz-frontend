@@ -15,6 +15,7 @@ export class AuthComponent implements OnInit {
   postError = false;
   forminfo = false;
   formPasswordMatch = false;
+  formSignInIsBlank = false;
   postErrorMessage = '';
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private authService: AuthService) { }
@@ -36,7 +37,7 @@ export class AuthComponent implements OnInit {
   }
 
   onSignInSubmit(form1: NgForm) {
-    // console.log(form1.value);
+    console.log(form1.value);
 
     if (form1.valid) {
       this.postError = false;
@@ -45,7 +46,7 @@ export class AuthComponent implements OnInit {
         error => this.onHttpError(error, "Incorrect username/password"),
       );
     } else {
-      this.onHttpError(null, "Please enter valid username/password")
+      this.formSignInIsBlank = true;
     }
   }
 
@@ -92,7 +93,7 @@ export class AuthComponent implements OnInit {
   }
 
   onHttpError(error: any, message: string) {
-    if (error.status === 422) {
+    if (error.status === 423) {
       this.postErrorMessage = 'username already exist!';
       this.postError = true;
     } else if (error.status === 417) {
@@ -100,6 +101,9 @@ export class AuthComponent implements OnInit {
       this.postError = true;
     } else if (error.status === 504) {
       this.postErrorMessage = 'Server down, Please try again later!';
+      this.postError = true;
+    } else if (error.status === 424) {
+      this.postErrorMessage = "Username/password doesn't exist!";
       this.postError = true;
     } else {
       this.postErrorMessage = 'Some went wrong...';

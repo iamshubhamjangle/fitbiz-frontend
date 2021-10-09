@@ -21,6 +21,6 @@ export class ExerciseCardComponent implements OnInit {
   selectedCategory: string = 'All';
 
   onExerciseCardClick(exercise: any) {
-    this.router.navigateByUrl('/exercise-detail', {state: exercise});
+    this.router.navigateByUrl('/exercise-detail#', {state: exercise});
   }
 }
