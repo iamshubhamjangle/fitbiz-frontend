@@ -1,11 +1,15 @@
+//Install express server
 const express = require('express');
-const app = express();
 const path = require('path');
 
-app.use(express.static(__dirname + '/dist/fitbiz'));
-app.listen(process.env.PORT || 8080);
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/fitbiz/index.html'));
-})
+const app = express();
 
-console.log('Console listening!')
+// Serve only the static files form the dist directory
+app.use(express.static('./dist/fitbiz'));
+
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/fitbiz/'}),
+);
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
