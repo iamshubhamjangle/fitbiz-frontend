@@ -1,6 +1,6 @@
 {
 	"/server": {
-		"target": "https://fitbiz-backend.herokuapp.com:14126/",
+		"target": "http://localhost:8080/",
 		"secure": false,
     "changeOrigin": true,
     "logLevel": "debug",

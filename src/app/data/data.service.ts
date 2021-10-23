@@ -13,8 +13,9 @@ import { Workout } from '../models/workout';
 
 export class DataService {
   
+  private REST_API_SERVER = "http://localhost:8080/";    //our proxy server running on spring boot
   // private REST_API_SERVER = "http://localhost:4200/server/";    //our proxy server running on spring boot
-  private REST_API_SERVER = "https://fitbiz-frontend.herokuapp.com/server/";
+  // private REST_API_SERVER = "https://fitbiz-frontend.herokuapp.com/server/";
 
   constructor(private http: HttpClient) { }
 

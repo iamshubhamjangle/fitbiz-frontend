@@ -14,7 +14,7 @@ export class ApiInterceptorService implements HttpInterceptor{
     // return next.handle(request);
     if (request.url.includes("signin") || request.url.includes("signup") || request.url.includes("exercise")){
       const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       });
 
       const requestWithHeaders = request.clone({headers})
@@ -32,11 +32,9 @@ export class ApiInterceptorService implements HttpInterceptor{
     
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
-      'Content-Type': `application/json`,
-      'Access-Control-Allow-Origin': '*'
+      'Content-Type': `application/json`
     });
 
-    // // const url = `${request.url}&api_key=xyZapiKeyExample`;
     const requestWithHeaders = request.clone({headers})
 
     return next.handle(requestWithHeaders).pipe(catchError(err => {
