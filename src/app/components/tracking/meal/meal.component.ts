@@ -45,7 +45,7 @@ export class MealComponent implements OnInit {
 
     let currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
     let mealIdSelected = parseInt(form.value.dropdownMealId);
-    console.log('selected meal id: ' + mealIdSelected);
+    // console.log('selected meal id: ' + mealIdSelected);
 
     var requestBody = {
       mealId: mealIdSelected,
@@ -66,7 +66,7 @@ export class MealComponent implements OnInit {
   }
 
   onDeleteItemClick(item: any) {
-    console.log("onDeleteItemCLick: " + item)
+    // console.log("onDeleteItemCLick: " + item)
     // console.log(typeof(item));
 
     this.dataService.deleteMealDataItem(item).subscribe(
@@ -76,7 +76,7 @@ export class MealComponent implements OnInit {
   }
 
   onDeleteSuccess(successResponse: any, message: string) {
-    console.log('Success' + successResponse);
+    // console.log('Success' + successResponse);
     this.postSuccessMessage = message;
     this.postSuccess = true;
     this.postError = false;
@@ -85,13 +85,13 @@ export class MealComponent implements OnInit {
   }
 
   onHttpError(errorResponse: any) {
-    console.log('Error: ', errorResponse);
+    // console.log('Error: ', errorResponse);
     this.postError = true;
     this.postErrorMessage = errorResponse.error.errorMessage;    
   }
 
   onPostSuccess(successResponse: any, message: string) {
-    console.log('success: ', successResponse),
+    // console.log('success: ', successResponse),
     this.postSuccessMessage = message;
     this.postSuccess = true;
     this.postError = false;

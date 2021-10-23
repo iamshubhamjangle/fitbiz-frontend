@@ -13,7 +13,7 @@ export class ExerciseDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(history.state);
+    // console.log(history.state);
     this.exercise = history.state;
   }
 

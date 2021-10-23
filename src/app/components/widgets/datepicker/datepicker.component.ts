@@ -36,7 +36,7 @@ export class DatepickerComponent implements OnInit {
   onDateSelected() {
     let myDate = this.model.year + '-' + this.model.month + '-' + this.model.day;
     let myFormattedDate = moment(myDate, 'YYYY-MM-DD').format('YYYY-MM-DD');
-    console.log('Date being emitted = ' + myFormattedDate);
+    // console.log('Date being emitted = ' + myFormattedDate);
     this.dateChangedEmitter.emit(myFormattedDate);
   }
 

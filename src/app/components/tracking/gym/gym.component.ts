@@ -111,7 +111,7 @@ export class GymComponent implements OnInit {
   }
 
   onPostSuccess(successResponse: any, message: string) {
-    console.log('success: ', successResponse);
+    // console.log('success: ', successResponse);
     // this.workout = this.originalWorkout;
     // this.showMyContainer = false;
     this.inUpdateMode = false;

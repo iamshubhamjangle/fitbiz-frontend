@@ -27,7 +27,7 @@ export class ApiInterceptorService implements HttpInterceptor{
     if(user != null){
       token = JSON.parse(user).token;
     } else {
-      console.log('token doesnt exist need to redirect user to login screen!')
+      // console.log('token doesnt exist need to redirect user to login screen!')
     }
     
     const headers = new HttpHeaders({
@@ -40,20 +40,20 @@ export class ApiInterceptorService implements HttpInterceptor{
     return next.handle(requestWithHeaders).pipe(catchError(err => {
       if(err instanceof HttpErrorResponse) {
         if(err.status === 400) {
-          console.log("Server down: 400");
+          // console.log("Server down: 400");
         } 
         else if(err.status === 403) {
-          console.log("Unauthorized Request: 403")
+          // console.log("Unauthorized Request: 403")
           this.authService.removeTokenFromLocalStorage();
           this.router.navigateByUrl("/login?page=signin")
         } 
         else if(err.status === 504) {
-          console.log("Server down: 504")
+          // console.log("Server down: 504")
           alert('Server Down! Please try again later!')
           this.router.navigateByUrl("/")
         } 
         else if(err.status === 500) {
-          console.log("Server is not responding: 500")
+          // console.log("Server is not responding: 500")
         }
       }
       return new Observable<HttpEvent<any>>();

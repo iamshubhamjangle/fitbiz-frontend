@@ -37,7 +37,7 @@ export class AuthComponent implements OnInit {
   }
 
   onSignInSubmit(form1: NgForm) {
-    console.log(form1.value);
+    // console.log(form1.value);
 
     if (form1.valid) {
       this.postError = false;
@@ -56,7 +56,7 @@ export class AuthComponent implements OnInit {
         this.postError = false;
         this.formPasswordMatch = false;
         this.forminfo = false;
-        console.log(form2.value);
+        // console.log(form2.value);
 
         var body = {
           "username": form2.value.username,

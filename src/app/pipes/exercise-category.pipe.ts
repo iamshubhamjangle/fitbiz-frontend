@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ExerciseCategoryPipe implements PipeTransform {
 
   transform(values: any[], filterCategory: string): any {
-    if (!values) { console.log('returning empty!'); return []; }
+    if (!values) { return []; }
     if (!filterCategory || filterCategory === 'All') { return values }
 
     return values.filter((item) => item.category === filterCategory);

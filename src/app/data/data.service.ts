@@ -20,22 +20,22 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   postSignInData(signInData: any): Observable<any> {
-    console.log(signInData);
+    // console.log(signInData);
     return this.http.post(this.REST_API_SERVER + `users/signin?username=${signInData.username}&password=${signInData.password}`, '');
   }
 
   postSignUpData(requestBody: any): Observable<any> {
-    console.log(requestBody);
+    // console.log(requestBody);
     return this.http.post(this.REST_API_SERVER + 'users/signup', requestBody);
   }
   
   postWorkoutForm(requestBody: Workout): Observable<any> {
-    console.log(requestBody);
+    // console.log(requestBody);
     return this.http.post(this.REST_API_SERVER + 'workout-log-user', requestBody);
   }
   
   postMealForm(requestBody: any): Observable<any> {
-    console.log(requestBody);
+    // console.log(requestBody);
     return this.http.post(this.REST_API_SERVER + 'meal-data-user', requestBody);
   }
 
